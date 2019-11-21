@@ -1,4 +1,4 @@
-package com.nutrix.common.exception;
+package com.nutrix.auth.exception;
 
 import com.nutrix.common.exception.base.BaseRuntimeException;
 import com.nutrix.common.exception.base.ExceptionType;

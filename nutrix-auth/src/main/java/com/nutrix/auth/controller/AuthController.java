@@ -1,7 +1,7 @@
 package com.nutrix.auth.controller;
 
 import com.nutrix.auth.dto.Credentials;
-import com.nutrix.auth.dto.TokenHolder;
+import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

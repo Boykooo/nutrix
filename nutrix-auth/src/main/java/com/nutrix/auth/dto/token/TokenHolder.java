@@ -1,4 +1,4 @@
-package com.nutrix.auth.dto;
+package com.nutrix.auth.dto.token;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
