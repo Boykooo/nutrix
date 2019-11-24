@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>nutrix-auth</module>
         <module>nutrix-common</module>
+        <module>nutrix-auth</module>
     </modules>
 
 </project>
