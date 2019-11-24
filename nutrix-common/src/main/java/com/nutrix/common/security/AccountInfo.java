@@ -1,4 +1,4 @@
-package com.nutrix.common.dto;
+package com.nutrix.common.security;
 
 import lombok.Builder;
 import lombok.Getter;

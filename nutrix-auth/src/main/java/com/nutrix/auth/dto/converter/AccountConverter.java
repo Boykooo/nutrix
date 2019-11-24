@@ -1,7 +1,7 @@
 package com.nutrix.auth.dto.converter;
 
 import com.nutrix.auth.entity.Account;
-import com.nutrix.common.dto.AccountInfo;
+import com.nutrix.common.security.AccountInfo;
 
 public final class AccountConverter {
 

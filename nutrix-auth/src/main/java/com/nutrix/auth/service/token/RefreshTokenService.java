@@ -14,7 +14,11 @@ public class RefreshTokenService {
 
     public String create(Long accountId) {
         RefreshToken refreshToken = refreshTokenRepository.findById(accountId).orElseThrow(TokenExpiredException::new);
-        
+        return refreshToken.getToken();
+    }
+
+    public RefreshToken getByAccountId(Long accountId) {
+        return refreshTokenRepository.findByAccountId(accountId);
     }
 
 }

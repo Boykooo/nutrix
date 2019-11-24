@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +20,7 @@ public class RefreshToken {
     @Column(name = "account_id")
     private Long accountId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @PrimaryKeyJoinColumn
     private Account account;
 

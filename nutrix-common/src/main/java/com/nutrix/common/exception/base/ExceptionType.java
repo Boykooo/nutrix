@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ExceptionType {
     INTERNAL_SERVER_ERROR(1, "Internal Server Error."),
-    ACCOUNT_NOT_FOUND(2, "Account not found."),
+    ACCOUNT_OR_PASSWORD_INCORRECT(2, "Email or password incorrect."),
     ACCOUNT_ALREADY_EXISTS(3, "Account already exists."),
     TOKEN_EXPIRED(4, "Token expired.")
     ;

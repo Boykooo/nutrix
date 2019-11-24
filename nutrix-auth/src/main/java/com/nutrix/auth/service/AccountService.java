@@ -17,4 +17,8 @@ public class AccountService {
         return accountRepository.findByEmail(email);
     }
 
+    public Account save(Account account) {
+        return accountRepository.save(account);
+    }
+
 }
