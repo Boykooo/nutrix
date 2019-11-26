@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
 import { AppComponent } from './initial/app.component';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { NutrixModule } from "./nutrix/nutrix.module";
 
 @NgModule({
   declarations: [
@@ -10,7 +10,8 @@ import { RouterModule } from "@angular/router";
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule.forRoot([]),
+    NutrixModule
   ],
   providers: [],
   bootstrap: [AppComponent]
