@@ -1,11 +1,13 @@
 import { NutrixRoutingModule } from "./nutrix-routing.module";
-import { WelcomeComponent } from './landing/welcome/welcome.component';
-import { NgModule } from "@angular/core";
+import { WelcomeComponent }    from './landing/welcome/welcome.component';
+import { NgModule }            from "@angular/core";
+import { HttpClientModule }    from "@angular/common/http";
 
 @NgModule({
   declarations: [WelcomeComponent],
   imports: [
-    NutrixRoutingModule
+    NutrixRoutingModule,
+    HttpClientModule
   ]
 })
 export class NutrixModule {
