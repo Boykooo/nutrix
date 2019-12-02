@@ -2,6 +2,7 @@ package com.nutrix.auth.service;
 
 import com.nutrix.auth.dto.Credentials;
 import com.nutrix.auth.dto.RegisterData;
+import com.nutrix.auth.dto.SocialNetworkType;
 import com.nutrix.auth.dto.converter.AccountConverter;
 import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.entity.Account;
@@ -65,6 +66,10 @@ public class AuthService {
      */
     public TokenHolder login(String refreshToken) {
         return tokenService.generate(refreshToken);
+    }
+
+    public TokenHolder login(String code, SocialNetworkType socialNetworkType) {
+        return null;
     }
 
 }

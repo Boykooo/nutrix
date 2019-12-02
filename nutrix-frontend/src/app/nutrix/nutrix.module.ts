@@ -1,13 +1,16 @@
 import { NutrixRoutingModule } from "./nutrix-routing.module";
-import { WelcomeComponent }    from './landing/welcome/welcome.component';
 import { NgModule }            from "@angular/core";
-import { HttpClientModule }    from "@angular/common/http";
+import { LandingModule }       from "./landing/landing.module";
+import { DashboardModule }     from "./dashboard/dashboard.module";
+import { BlogModule }          from "./blog/blog.module";
 
 @NgModule({
-  declarations: [WelcomeComponent],
+  declarations: [],
   imports: [
     NutrixRoutingModule,
-    HttpClientModule
+    LandingModule,
+    DashboardModule,
+    BlogModule
   ]
 })
 export class NutrixModule {

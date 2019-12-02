@@ -2,6 +2,7 @@ package com.nutrix.auth.controller;
 
 import com.nutrix.auth.dto.Credentials;
 import com.nutrix.auth.dto.RegisterData;
+import com.nutrix.auth.dto.SocialNetworkType;
 import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -35,8 +35,15 @@ public class AuthController {
     }
 
     @PostMapping("/token")
-    public ResponseEntity login(@RequestParam("rt") @NotNull String refreshToken) {
+    public ResponseEntity login(@RequestParam("rt") String refreshToken) {
         TokenHolder tokenHolder = authService.login(refreshToken);
+        return ResponseEntity.ok(tokenHolder);
+    }
+
+    @PostMapping("/social")
+    public ResponseEntity login(@RequestParam("code") String code,
+                                @RequestParam("type") SocialNetworkType type) {
+        TokenHolder tokenHolder = authService.login(code, type);
         return ResponseEntity.ok(tokenHolder);
     }
 
