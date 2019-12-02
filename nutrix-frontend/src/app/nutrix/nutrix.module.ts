@@ -1,11 +1,10 @@
-import { NutrixRoutingModule }   from "./nutrix-routing.module";
-import { NgModule }              from "@angular/core";
-import { LandingModule }         from "./landing/landing.module";
-import { DashboardModule }       from "./dashboard/dashboard.module";
-import { BlogModule }            from "./blog/blog.module";
-import { NavbarComponent }       from './shared/components/navbar/navbar.component';
-import { NavbarOutletComponent } from './shared/components/navbar-outlet/navbar-outlet.component';
-import { SharedModule }          from "./shared/shared.module";
+import { NutrixRoutingModule } from "./nutrix-routing.module";
+import { NgModule }            from "@angular/core";
+import { LandingModule }       from "./modules/landing/landing.module";
+import { DashboardModule }     from "./modules/dashboard/dashboard.module";
+import { BlogModule }          from "./modules/blog/blog.module";
+import { SharedModule }        from "./shared/shared.module";
+import { HttpTranslateModule } from "./shared/modules/http-translate.module";
 
 @NgModule({
   imports: [
@@ -13,8 +12,10 @@ import { SharedModule }          from "./shared/shared.module";
     SharedModule,
     LandingModule,
     DashboardModule,
-    BlogModule
+    BlogModule,
+    HttpTranslateModule
   ]
 })
 export class NutrixModule {
 }
+
