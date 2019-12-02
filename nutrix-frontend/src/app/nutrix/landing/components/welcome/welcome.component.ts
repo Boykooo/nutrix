@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient }        from "@angular/common/http";
 
 @Component({
   selector: 'app-welcome',
@@ -8,7 +7,7 @@ import { HttpClient }        from "@angular/common/http";
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor() {
   }
 
   ngOnInit() {
