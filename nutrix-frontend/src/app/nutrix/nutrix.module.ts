@@ -4,10 +4,12 @@ import { LandingModule }       from "./modules/landing/landing.module";
 import { DashboardModule }     from "./modules/dashboard/dashboard.module";
 import { BlogModule }          from "./modules/blog/blog.module";
 import { HttpTranslateModule } from "./shared/http-translate.module";
+import { AuthorizationModule } from "./modules/autorization/authorization.module";
 
 @NgModule({
   imports: [
     NutrixRoutingModule,
+    AuthorizationModule,
     LandingModule,
     DashboardModule,
     BlogModule,

@@ -1,3 +1,5 @@
+@import "colors"
+
 .btn
   border: none
   border-radius: 100px
@@ -7,13 +9,13 @@
 
 .btn-accent
   @extend .btn
-  background-color: #15c39a
-  box-shadow: 0 0 10px rgba(21,195,154,0.3)
+  @extend .c-primary
+  box-shadow: 0 0 10px rgba(21, 195, 154, 0.3)
   color: #ffffff
 
 .btn-accent:hover
-  background-color: #1ab386
-  box-shadow: 0 0 10px 3px rgba(21,195,154,0.3)
+  @extend .c-primary-hover
+  box-shadow: 0 0 10px 3px rgba(21, 195, 154, 0.3)
 
 .btn-medium
   font-size: 16px
