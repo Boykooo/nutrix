@@ -5,8 +5,10 @@
 .navbar__offset
   margin: 0 10%
 
-.navbar__links a
-  margin-right: 25px
+.unset-link
   text-decoration: none
   color: unset
 
+.navbar__links a
+  @extend .unset-link
+  margin-right: 25px
