@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild("passwordInput", { static: true })
+  passwordInput: ElementRef<HTMLInputElement>;
+  passwordVisible: boolean = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  togglePasswordVisible() {
+    this.passwordVisible = !this.passwordVisible;
+    if (this.passwordVisible) {
+      this.passwordInput.nativeElement.type = 'text';
+    } else {
+      this.passwordInput.nativeElement.type = 'password';
+    }
   }
 
 }
