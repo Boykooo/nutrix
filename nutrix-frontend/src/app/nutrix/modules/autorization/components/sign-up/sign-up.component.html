@@ -13,42 +13,54 @@
       or use your email for registration
     </div>
 
-    <div class="signup-form" fxLayout="column" fxLayoutAlign="center center">
+    <!-- Register Form -->
+    <form [formGroup]="validation" class="signup-form" fxLayout="column" fxLayoutAlign="center center">
 
       <!-- Name -->
       <div class="form-input">
         <mat-icon onselectstart="return false">account_circle</mat-icon>
-        <input class="input-field" placeholder="Name"/>
+        <input class="input-field" placeholder="Name" formControlName="name"/>
+      </div>
+      <div class="error-holder">
+        <mat-error *ngIf="validation.isDirty('name') && validation.hasError('name', 'required')">Введите имя</mat-error>
+        <mat-error *ngIf="validation.get('name').hasError('minlength')">Минимальная длина имени - 2 символа</mat-error>
       </div>
 
       <!-- Email -->
       <div class="form-input">
         <mat-icon onselectstart="return false">email</mat-icon>
-        <input class="input-field" placeholder="Email"/>
+        <input class="input-field" placeholder="Email" formControlName="email"/>
+      </div>
+      <div class="error-holder">
+        <mat-error *ngIf="validation.isDirty('email') && validation.hasError('email', 'required')">Введите email</mat-error>
+        <mat-error *ngIf="validation.get('email').hasError('email')">Введите корректный email</mat-error>
       </div>
 
       <!-- Password -->
       <div class="form-input">
         <mat-icon onselectstart="return false">lock</mat-icon>
-        <input #passwordInput class="input-field" placeholder="Password" type="password"/>
+        <input #passwordInput class="input-field" placeholder="Password" type="password" formControlName="password"/>
         <mat-icon class="visibility-button" (click)="togglePasswordVisible()" onselectstart="return false">
           {{passwordVisible ? 'visibility' : 'visibility_off'}}
         </mat-icon>
       </div>
+      <div class="error-holder">
+        <mat-error *ngIf="validation.isDirty('password') && validation.hasError('password', 'required')">Введите пароль</mat-error>
+        <mat-error *ngIf="validation.get('password').hasError('minlength')">Минимальная длина пароля - 8 символов</mat-error>
+      </div>
 
       <!-- Terms -->
-      <div class="form-input form-input_checkbox">
-        <mat-checkbox disableRipple>
+      <div class="form-input form-input_checkbox" [class.terms-error]="validation.isDirty('terms') && validation.hasError('terms', 'required')" >
+        <mat-checkbox formControlName="terms">
           I accept the Terms of Service and Privacy Policy
         </mat-checkbox>
       </div>
 
-      <button class="btn-accent btn-big register-margin"
-              routerLink="/signup">
+      <button class="btn-accent btn-big register-margin" (click)="register()" type="submit">
         Register
       </button>
 
-    </div>
+    </form>
 
   </div>
 

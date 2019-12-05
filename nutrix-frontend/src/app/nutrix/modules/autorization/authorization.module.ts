@@ -7,6 +7,7 @@ import { SignWrapperComponent }        from './components/sign-wrapper/sign-wrap
 import { SocialNetworkLoginComponent } from './components/social-network-login/social-network-login.component';
 import { MatIconModule }               from "@angular/material/icon";
 import { MatCheckboxModule }           from "@angular/material/checkbox";
+import { MatInputModule }              from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatCheckboxModule }           from "@angular/material/checkbox";
     BaseLayoutModule,
     AuthorizationRoutingModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule
   ]
 })
 export class AuthorizationModule {

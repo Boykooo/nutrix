@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { SignUpValidation }                         from "./sign-up.validation";
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +11,8 @@ export class SignUpComponent implements OnInit {
   @ViewChild("passwordInput", { static: true })
   passwordInput: ElementRef<HTMLInputElement>;
   passwordVisible: boolean = false;
+
+  validation: SignUpValidation = new SignUpValidation();
 
   constructor() {
   }
@@ -23,6 +26,13 @@ export class SignUpComponent implements OnInit {
       this.passwordInput.nativeElement.type = 'text';
     } else {
       this.passwordInput.nativeElement.type = 'password';
+    }
+  }
+
+  register() {
+    this.validation.setAllDirty();
+    if (this.validation.valid) {
+
     }
   }
 

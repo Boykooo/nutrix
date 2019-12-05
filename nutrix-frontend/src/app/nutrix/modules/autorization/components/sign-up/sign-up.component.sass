@@ -1,5 +1,7 @@
 @import "src/assets/styles/nutrix/colors"
 
+$form-input-width: 300px
+
 .signup__title
   color: $primary-color
   font-size: 50px
@@ -23,13 +25,12 @@
   margin-bottom: 30px
   ::ng-deep mat-icon
     color: $primary-color
-  .form-input
-    align-items: center
-    display: flex
 
 .form-input
+  align-items: center
+  display: flex
   border-bottom: 1px solid #dddddd
-  width: 300px
+  min-width: $form-input-width
   margin: 15px 10px
   padding: 5px
 
@@ -50,3 +51,10 @@
   border-bottom: none
   word-break: break-word
   font-size: 14px
+
+.terms-error
+  color: red
+
+.error-holder
+  width: $form-input-width
+  font-size: 12px
