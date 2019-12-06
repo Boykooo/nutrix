@@ -1,0 +1,4 @@
+token:
+  access-expiration-days: 1
+  refresh-expiration-days: 30
+  key: ba35a6ede916fe0f683884ed2009f06ea4e10d977cf686d71bdad4e773d0b360

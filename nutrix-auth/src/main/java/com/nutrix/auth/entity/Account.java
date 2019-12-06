@@ -1,6 +1,7 @@
 package com.nutrix.auth.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import java.util.Set;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Account {
 
     @Id
@@ -43,5 +45,9 @@ public class Account {
             joinColumns = @JoinColumn(name = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    public Account(Long id) {
+        this.id = id;
+    }
 
 }

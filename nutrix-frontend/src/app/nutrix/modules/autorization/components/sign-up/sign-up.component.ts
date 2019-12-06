@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SignUpValidation }                         from "./sign-up.validation";
+import { AuthService }                              from "../../../../security/auth.service";
+import { Router }                                   from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +16,8 @@ export class SignUpComponent implements OnInit {
 
   validation: SignUpValidation = new SignUpValidation();
 
-  constructor() {
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -31,8 +34,10 @@ export class SignUpComponent implements OnInit {
 
   register() {
     this.validation.setAllDirty();
+    console.log(this.validation.valid);
     if (this.validation.valid) {
-
+      let registerData = this.validation.toEntity();
+      this.authService.register(registerData).subscribe();
     }
   }
 

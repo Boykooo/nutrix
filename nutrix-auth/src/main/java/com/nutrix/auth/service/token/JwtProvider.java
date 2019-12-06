@@ -42,7 +42,6 @@ public class JwtProvider {
         String jwt = Jwts.builder()
                 .setExpiration(saltDate(expired))
                 .claim(JwtParser.PAYLOAD_HEADER, payload)
-                .setPayload(OBJECT_MAPPER.writeValueAsString(payload))
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
         return new TokenWrapper(jwt, DateUtils.toReadableDate(expired));

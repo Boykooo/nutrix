@@ -5,6 +5,7 @@ import { DashboardModule }     from "./modules/dashboard/dashboard.module";
 import { BlogModule }          from "./modules/blog/blog.module";
 import { HttpTranslateModule } from "./shared/http-translate.module";
 import { AuthorizationModule } from "./modules/autorization/authorization.module";
+import { HttpClientModule }    from "@angular/common/http";
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { AuthorizationModule } from "./modules/autorization/authorization.module
     LandingModule,
     DashboardModule,
     BlogModule,
-    HttpTranslateModule
+    HttpTranslateModule,
+    HttpClientModule
   ]
 })
 export class NutrixModule {

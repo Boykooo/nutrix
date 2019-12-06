@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import construct = Reflect.construct;
+import { RegisterData }                       from "../../../../security/entity/register-data";
 
 export class SignUpValidation extends FormGroup {
 
@@ -24,6 +24,14 @@ export class SignUpValidation extends FormGroup {
     Object.values(this.controls).forEach(control => {
       control.markAsDirty();
     });
+  }
+
+  toEntity(): RegisterData {
+    return {
+      name: this.get('name').value,
+      email: this.get('email').value,
+      password: this.get('password').value
+    }
   }
 
 }

@@ -27,4 +27,10 @@ public class RefreshToken {
     @Column(name = "token")
     private String token;
 
+    public RefreshToken(Long accountId, String token) {
+        this.accountId = accountId;
+        this.account = new Account(accountId);
+        this.token = token;
+    }
+
 }

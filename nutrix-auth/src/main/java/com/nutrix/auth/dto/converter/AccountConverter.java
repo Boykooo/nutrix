@@ -10,7 +10,8 @@ public final class AccountConverter {
                 .id(account.getId())
                 .email(account.getEmail())
                 .name(account.getName())
-                .roles(RoleConverter.extractRoleNames(account.get))
+                .roles(RoleConverter.extractRoleNames(account.getRoles()))
+                .build();
     }
 
 }

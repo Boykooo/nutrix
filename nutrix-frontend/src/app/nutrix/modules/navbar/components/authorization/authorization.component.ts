@@ -15,7 +15,6 @@ export class AuthorizationComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isAuthorized);
   }
 
 }
