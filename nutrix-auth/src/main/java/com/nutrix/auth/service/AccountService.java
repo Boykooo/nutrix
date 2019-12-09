@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.Collections;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +17,7 @@ public class AccountService {
     private final RoleService roleService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public Optional<Account> getAccountByEmail(String email) {
+    public Account getAccountByEmail(String email) {
         return accountRepository.findByEmail(email);
     }
 

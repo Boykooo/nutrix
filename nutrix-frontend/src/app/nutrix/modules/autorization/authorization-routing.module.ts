@@ -4,6 +4,7 @@ import { SignUpComponent }       from "./components/sign-up/sign-up.component";
 import { NgModule }              from "@angular/core";
 import { SignInComponent }       from "./components/sign-in/sign-in.component";
 import { SignWrapperComponent }  from "./components/sign-wrapper/sign-wrapper.component";
+import { SocialNetworkOAuthComponent } from "./components/social-network-oauth/social-network-o-auth.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'signin',
     component: NavbarOutletComponent,
     children: [{ path: '', component: SignInComponent }]
+  },
+  {
+    path: 'login/oauth',
+    component: SocialNetworkOAuthComponent,
   }
 ];
 

@@ -11,3 +11,8 @@ spring:
 logging:
   level:
     ROOT: INFO
+
+oauth:
+  google:
+    client-id: 1070270542749-5230c4odd2duh8rdlkh3ds6oudt3obk2.apps.googleusercontent.com
+    client-secret: faDlEHXG6DfCSu7BbBSmq7B1

@@ -8,13 +8,15 @@ import { SocialNetworkLoginComponent } from './components/social-network-login/s
 import { MatIconModule }               from "@angular/material/icon";
 import { MatCheckboxModule }           from "@angular/material/checkbox";
 import { MatInputModule }              from "@angular/material/input";
+import { SocialNetworkOAuthComponent } from './components/social-network-oauth/social-network-o-auth.component';
 
 @NgModule({
   declarations: [
     SignWrapperComponent,
     SignInComponent,
     SignUpComponent,
-    SocialNetworkLoginComponent
+    SocialNetworkLoginComponent,
+    SocialNetworkOAuthComponent
   ],
   imports: [
     BaseLayoutModule,

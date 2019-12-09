@@ -1,20 +1,21 @@
 package com.nutrix.auth.service.social;
 
-import com.nutrix.auth.dto.socialnetwork.SocialNetworkAuthenticationParams;
 import com.nutrix.auth.dto.SocialNetworkType;
 import com.nutrix.auth.dto.converter.SocialNetworkUserConverter;
+import com.nutrix.auth.dto.socialnetwork.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
 import com.nutrix.auth.dto.socialnetwork.google.GoogleTokenHolder;
 import com.nutrix.auth.dto.socialnetwork.google.GoogleUserInfo;
-import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
 import com.nutrix.common.exception.InternalServerException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URI;
 
 @Slf4j
 @Service
@@ -44,28 +45,38 @@ public class GoogleConnector implements SocialNetworkConnector {
     }
 
     private GoogleTokenHolder getAccessToken(SocialNetworkAuthenticationParams params) {
-        Map<String, String> uriParams = new HashMap<>();
-        uriParams.put("code", params.getCode());
-        uriParams.put("client_id", clientId);
-        uriParams.put("client_secret", clientSecret);
-        uriParams.put("grant_type", "authorization_code");
-        uriParams.put("redirect_uri", params.getRedirectUri());
+        URI uri = UriComponentsBuilder.fromHttpUrl(AUTHENTICATE_URL)
+                .queryParam("code", params.getCode())
+                .queryParam("client_id", clientId)
+                .queryParam("client_secret", clientSecret)
+                .queryParam("grant_type", "authorization_code")
+                .queryParam("redirect_uri", params.getRedirectUri())
+                .build()
+                .toUri();
         try {
-            return restTemplate.postForEntity(AUTHENTICATE_URL, null, GoogleTokenHolder.class, uriParams).getBody();
-        } catch (Exception ex) {
-            log.error("Couldn't authenticate through Google OAuth service. Erorr = {}", ex.getMessage());
+            return restTemplate.postForEntity(uri, null, GoogleTokenHolder.class).getBody();
+        } catch (Exception e) {
+            log.error("Couldn't authenticate through Google OAuth service. Error = {}", getErrorMsg(e));
             throw new InternalServerException();
         }
     }
 
     private GoogleUserInfo getUserInfo(GoogleTokenHolder th) {
-        Map<String, String> params = Map.of("access_token", th.getAccessToken());
+        var uri = UriComponentsBuilder.fromHttpUrl(USER_INFO_URL)
+                .queryParam("access_token", th.getAccessToken())
+                .build()
+                .toUri();
         try {
-            return restTemplate.getForEntity(USER_INFO_URL, GoogleUserInfo.class, params).getBody();
-        } catch (Exception ex) {
-            log.error("Couldn't retrieve User Info from Google OAuth service. Erorr = {}", ex.getMessage());
+            return restTemplate.getForEntity(uri, GoogleUserInfo.class).getBody();
+        } catch (Exception e) {
+            log.error("Couldn't retrieve User Info from Google OAuth service. Error = {}", getErrorMsg(e));
             throw new InternalServerException();
         }
+    }
+
+    private String getErrorMsg(Exception e) {
+        return e instanceof HttpClientErrorException ? ((HttpClientErrorException) e).getResponseBodyAsString()
+                : e.getMessage();
     }
 
 }

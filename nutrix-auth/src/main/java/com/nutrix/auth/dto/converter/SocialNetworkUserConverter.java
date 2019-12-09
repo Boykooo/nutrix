@@ -1,7 +1,7 @@
 package com.nutrix.auth.dto.converter;
 
-import com.nutrix.auth.dto.socialnetwork.GoogleUserInfo;
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
+import com.nutrix.auth.dto.socialnetwork.google.GoogleUserInfo;
 
 public final class SocialNetworkUserConverter {
 

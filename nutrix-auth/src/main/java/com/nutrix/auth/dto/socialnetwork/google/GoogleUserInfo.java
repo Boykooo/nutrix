@@ -9,5 +9,5 @@ public class GoogleUserInfo {
     @JsonProperty("email_verified")
     private boolean emailVerified;
     private String picture;
-    private Long sub;
+    private String sub;
 }

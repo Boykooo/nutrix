@@ -3,6 +3,7 @@ package com.nutrix.auth.service.token;
 import com.nutrix.auth.dto.converter.AccountConverter;
 import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.dto.token.TokenWrapper;
+import com.nutrix.auth.entity.Account;
 import com.nutrix.auth.entity.RefreshToken;
 import com.nutrix.common.security.AccountInfo;
 import com.nutrix.common.security.JwtParser;
@@ -28,9 +29,10 @@ public class TokenService {
     private String tokenKey;
 
     @Transactional
-    public TokenHolder generate(AccountInfo account) {
-        TokenWrapper accessToken = jwtProvider.generateAccess(account);
-        String refreshToken = refreshTokenService.create(account.getId());
+    public TokenHolder generate(Account account) {
+        AccountInfo info = AccountConverter.toInfo(account);
+        TokenWrapper accessToken = jwtProvider.generateAccess(info);
+        String refreshToken = refreshTokenService.create(info.getId());
         return new TokenHolder(accessToken.getToken(), refreshToken, accessToken.getExpired());
     }
 
@@ -41,7 +43,7 @@ public class TokenService {
     public TokenHolder generate(String refreshToken) {
         Long accountId = JwtParser.parse(refreshToken, tokenKey, true, Long.class);
         RefreshToken rt = refreshTokenService.getByAccountId(accountId);
-        return tokenService.generate(AccountConverter.toInfo(rt.getAccount()));
+        return tokenService.generate(rt.getAccount());
     }
 
 }

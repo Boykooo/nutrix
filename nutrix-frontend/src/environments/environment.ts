@@ -8,7 +8,7 @@ export const environment = {
   oauth: {
     google: {
       clientId: "1070270542749-5230c4odd2duh8rdlkh3ds6oudt3obk2.apps.googleusercontent.com",
-      redirectUrl: "http://localhost:4200"
+      redirectUrl: "http://localhost:4200/login/oauth"
     }
   }
 

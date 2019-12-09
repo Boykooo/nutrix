@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleAuthService } from "../../service/google-auth.service";
+import { GoogleOAuthService } from "../../service/google-o-auth.service";
 
 @Component({
   selector: 'app-social-network-login',
@@ -8,7 +8,7 @@ import { GoogleAuthService } from "../../service/google-auth.service";
 })
 export class SocialNetworkLoginComponent implements OnInit {
 
-  constructor(private googleAuthService: GoogleAuthService) { }
+  constructor(private googleAuthService: GoogleOAuthService) { }
 
   ngOnInit() {
   }

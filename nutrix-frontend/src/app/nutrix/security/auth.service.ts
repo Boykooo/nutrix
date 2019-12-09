@@ -1,15 +1,17 @@
-import { Injectable }   from "@angular/core";
+import { Injectable } from "@angular/core";
 import { TokenService } from "./token.service";
 import { RegisterData } from "./entity/register-data";
-import { HttpClient }   from "@angular/common/http";
-import { Observable }   from "rxjs";
-import { TokenHolder }  from "./entity/token-holder";
-import { environment }  from "../../../environments/environment";
-import { Credentials }  from "./entity/credentials";
-import { tap }          from "rxjs/operators";
-import { Router }       from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { TokenHolder } from "./entity/token-holder";
+import { environment } from "../../../environments/environment";
+import { Credentials } from "./entity/credentials";
+import { tap } from "rxjs/operators";
+import { Router } from "@angular/router";
+import { SocialNetworkAuthenticationResult } from "./entity/social-network-authentication-result";
+import { SocialNetworkAuthenticationParams } from "../modules/autorization/entity/social-network-authentication-params";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthService {
 
   private readonly url: string = `${environment.api.url}/auth`;
@@ -38,6 +40,9 @@ export class AuthService {
       .pipe(tap(th => this.tokenService.save(th)));
   }
 
-
+  socialNetworkLogin(params: SocialNetworkAuthenticationParams): Observable<SocialNetworkAuthenticationResult> {
+    return this.http.post<SocialNetworkAuthenticationResult>(`${this.url}/social`, params)
+      .pipe(tap(th => this.tokenService.save(th)));
+  }
 
 }
