@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService }       from "../../../../security/auth.service";
 
 @Component({
   selector: 'app-welcome',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -26,6 +27,11 @@ export class WelcomeComponent implements OnInit {
     }
     // this.http.get(url)
     //   .subscribe(res => console.log(res), error => console.log(error));
+  }
+
+  checkToken() {
+    let authorized = this.authService.isAuthorized();
+    console.log(authorized);
   }
 
 }

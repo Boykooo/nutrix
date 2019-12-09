@@ -7,6 +7,7 @@ import { TokenHolder }  from "./entity/token-holder";
 import { environment }  from "../../../environments/environment";
 import { Credentials }  from "./entity/credentials";
 import { tap }          from "rxjs/operators";
+import { Router }       from "@angular/router";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,11 +15,17 @@ export class AuthService {
   private readonly url: string = `${environment.api.url}/auth`;
 
   constructor(private http: HttpClient,
-              private tokenService: TokenService) {
+              private tokenService: TokenService,
+              private router: Router) {
   }
 
   isAuthorized(): boolean {
     return this.tokenService.hasValidToken();
+  }
+
+  logout() {
+    this.tokenService.clear();
+    this.router.navigateByUrl("/");
   }
 
   register(registerData: RegisterData): Observable<TokenHolder> {

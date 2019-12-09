@@ -1,5 +1,6 @@
 <div *ngIf="isAuthorized">
   ЛИЧНЫЙ КАБИНЕТ
+  <button (click)="logout()">logout</button>
 </div>
 
 <ng-container *ngIf="!isAuthorized">

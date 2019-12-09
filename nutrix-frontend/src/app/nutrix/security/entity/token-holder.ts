@@ -1,4 +1,4 @@
-export class TokenHolder {
+export interface TokenHolder {
   accessToken: string;
   refreshToken: string;
   expiredTime: string;

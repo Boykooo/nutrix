@@ -17,4 +17,9 @@ export class AuthorizationComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout() {
+    this.authService.logout();
+  }
+
+
 }

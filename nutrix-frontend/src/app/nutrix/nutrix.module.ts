@@ -6,6 +6,7 @@ import { BlogModule }          from "./modules/blog/blog.module";
 import { HttpTranslateModule } from "./shared/http-translate.module";
 import { AuthorizationModule } from "./modules/autorization/authorization.module";
 import { HttpClientModule }    from "@angular/common/http";
+import { CookieService }       from "ngx-cookie-service";
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { HttpClientModule }    from "@angular/common/http";
     DashboardModule,
     BlogModule,
     HttpTranslateModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+  ],
+  providers: [CookieService]
 })
 export class NutrixModule {
 }
