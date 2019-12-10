@@ -21,7 +21,13 @@ const routes: Routes = [
   {
     path: 'signin',
     component: NavbarOutletComponent,
-    children: [{ path: '', component: SignInComponent }]
+    children: [
+      {
+        path: '',
+        component: SignWrapperComponent,
+        children: [{ path: '', component: SignInComponent }]
+      }
+    ]
   },
   {
     path: 'login/oauth',

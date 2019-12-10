@@ -37,7 +37,8 @@ export class SignUpComponent implements OnInit {
     console.log(this.validation.valid);
     if (this.validation.valid) {
       let registerData = this.validation.toEntity();
-      this.authService.register(registerData).subscribe();
+      this.authService.register(registerData)
+        .subscribe(() => this.router.navigateByUrl("/"));
     }
   }
 

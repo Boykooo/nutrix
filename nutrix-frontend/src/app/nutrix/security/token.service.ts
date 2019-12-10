@@ -18,6 +18,7 @@ export class TokenService {
   }
 
   save(th: TokenHolder) {
+    console.log('test');
     this.cookieService.set(this.ACCESS_TOKEN_HADER, th.accessToken);
     this.cookieService.set(this.REFRESH_TOKEN_HADER, th.refreshToken);
     this.cookieService.set(this.EXPIRED_TOKEN_HADER, th.expiredTime);

@@ -43,7 +43,7 @@ public class AuthService {
         if (account != null) {
             throw new AccountAlreadyExistsException();
         }
-        account = accountService.createNew(registerData.getEmail(), registerData.getName(), registerData.getEmail());
+        account = accountService.createNew(registerData.getEmail(), registerData.getName(), registerData.getPassword());
         return tokenService.generate(account);
     }
 

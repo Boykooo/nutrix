@@ -1,7 +1,8 @@
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { RegisterData }                       from "../../../../security/entity/register-data";
+import { BaseFormGroup }                      from "../../../../shared/entity/system/base-form-group";
 
-export class SignUpValidation extends FormGroup {
+export class SignUpValidation extends BaseFormGroup {
 
   constructor() {
     super({
@@ -10,20 +11,6 @@ export class SignUpValidation extends FormGroup {
       'password': new FormControl('', [Validators.required, Validators.minLength(8)]),
       'terms': new FormControl('', [Validators.required, Validators.requiredTrue])
     })
-  }
-
-  hasError(field: string, error: string): boolean {
-    return this.get(field).hasError(error);
-  }
-
-  isDirty(field: string): boolean {
-    return this.get(field).dirty;
-  }
-
-  setAllDirty() {
-    Object.values(this.controls).forEach(control => {
-      control.markAsDirty();
-    });
   }
 
   toEntity(): RegisterData {

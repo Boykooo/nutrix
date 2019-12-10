@@ -1,1 +1,54 @@
-<p>sign-in works!</p>
+<div fxLayout="column">
+
+  <div class="auth-form__title">
+    Welcome back!
+  </div>
+
+  <app-social-network-login class="social-networks">
+  </app-social-network-login>
+
+  <div class="auth-form__wrapper">
+
+    <div class="auth-form__alternative">
+      or use your email for login
+    </div>
+
+    <!-- Register Form -->
+    <form [formGroup]="validation" class="auth-form" fxLayout="column" fxLayoutAlign="center center">
+
+      <div *ngIf="signInError" class="server-error">
+        {{signInError}}
+      </div>
+
+      <!-- Email -->
+      <div class="form-input">
+        <mat-icon onselectstart="return false">email</mat-icon>
+        <input class="input-field" placeholder="Email" formControlName="email"/>
+      </div>
+      <div class="error-holder">
+        <mat-error *ngIf="validation.isDirty('email') && validation.hasError('email', 'required')">Введите email</mat-error>
+        <mat-error *ngIf="validation.get('email').hasError('email')">Введите корректный email</mat-error>
+      </div>
+
+      <!-- Password -->
+      <div class="form-input">
+        <mat-icon onselectstart="return false">lock</mat-icon>
+        <input #passwordInput class="input-field" placeholder="Password" type="password" formControlName="password"/>
+        <mat-icon class="visibility-button" (click)="togglePasswordVisible()" onselectstart="return false">
+          {{passwordVisible ? 'visibility' : 'visibility_off'}}
+        </mat-icon>
+      </div>
+      <div class="error-holder">
+        <mat-error *ngIf="validation.isDirty('password') && validation.hasError('password', 'required')">Введите пароль</mat-error>
+        <mat-error *ngIf="validation.get('password').hasError('minlength')">Минимальная длина пароля - 8 символов</mat-error>
+      </div>
+
+      <button class="btn-accent btn-big login-margin" (click)="login()" type="submit">
+        Login
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

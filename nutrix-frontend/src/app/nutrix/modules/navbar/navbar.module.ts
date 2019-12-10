@@ -1,8 +1,8 @@
 import { NgModule }               from "@angular/core";
 import { NavbarComponent }        from "./components/navbar/navbar.component";
-import { BaseLayoutModule }       from "../../shared/base-layout.module";
 import { RouterModule }           from "@angular/router";
 import { AuthorizationComponent } from "./components/authorization/authorization.component";
+import { BaseLayoutModule }       from "../../shared/modules/base-layout.module";
 
 @NgModule({
   declarations: [

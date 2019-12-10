@@ -2,6 +2,7 @@ import { NgModule }                         from "@angular/core";
 import { HttpClient }                       from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader }              from "@ngx-translate/http-loader";
+import { MultiTranslateHttpLoader }         from "ngx-translate-multi-http-loader";
 
 @NgModule({
   imports: [
@@ -18,5 +19,8 @@ export class HttpTranslateModule {
 }
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new MultiTranslateHttpLoader(http, [
+    { prefix: './assets/i18n/', suffix: '.json' },
+    { prefix: './assets/i18n/errors/', suffix: '.json' }
+  ])
 }

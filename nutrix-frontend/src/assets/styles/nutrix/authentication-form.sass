@@ -1,0 +1,43 @@
+@import "src/assets/styles/nutrix/colors"
+@import "src/assets/styles/nutrix/forms"
+
+.auth-form__title
+  color: $primary-color
+  font-size: 50px
+  font-weight: bold
+  text-align: center
+  margin-top: 20px
+
+.social-networks
+  margin-top: 10px
+
+.auth-form__alternative
+  @extend .c-secondary-text
+  text-align: center
+  font-size: 12px
+
+.auth-form__wrapper
+  margin-top: 20px
+
+.auth-form
+  padding: 5px 20px
+  margin-bottom: 30px
+  ::ng-deep mat-icon
+    color: $primary-color
+
+.visibility-button
+  cursor: pointer
+  opacity: 0.5
+  &:hover
+    opacity: 1
+
+.terms-error
+  color: red
+
+.server-error
+  margin-top: 10px
+  text-align: center
+  color: red
+  font-weight: bold
+  font-size: 14px
+  width: $form-input-width
