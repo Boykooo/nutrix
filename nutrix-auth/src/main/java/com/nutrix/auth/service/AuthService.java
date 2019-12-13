@@ -11,26 +11,20 @@ import com.nutrix.auth.exception.AccountOrPasswordIncorrectException;
 import com.nutrix.auth.service.social.SocialNetworkAuthenticationManager;
 import com.nutrix.auth.service.token.TokenService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-
-    public static final String USERNAME_TEMPLATE = "New User";
 
     private final AccountService accountService;
     private final TokenService tokenService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final SocialNetworkAuthenticationManager socialNetworkAuthenticationManager;
-
-    @Lazy
-    @Autowired
-    private AuthService authService;
 
     /**
      * Simple register via email and password
@@ -44,7 +38,9 @@ public class AuthService {
             throw new AccountAlreadyExistsException();
         }
         account = accountService.createNew(registerData.getEmail(), registerData.getName(), registerData.getPassword());
-        return tokenService.generate(account);
+        var th = tokenService.generate(account);
+        log.info("Creted new account. ID = {}, EMAIL = {}", account.getId(), account.getEmail());
+        return th;
     }
 
     /**
@@ -78,11 +74,15 @@ public class AuthService {
         var account = accountService.getAccountByEmail(user.getEmail());
         boolean isNewUser = false;
         if (account == null) {
-            account = accountService.createNew(user.getEmail(), USERNAME_TEMPLATE, params.getCode());
+            account = accountService.createNew(user.getEmail(), retrieveNameFromEmail(user.getEmail()), params.getCode());
             isNewUser = true;
         }
         var th = tokenService.generate(account);
         return new SocialNetworkLoginResult(th, isNewUser);
+    }
+
+    private String retrieveNameFromEmail(String email) {
+        return email.split("@")[0];
     }
 
 }

@@ -1,8 +1,5 @@
 package com.nutrix.auth.dto.token;
 
-import lombok.Getter;
-
-@Getter
 public class SocialNetworkLoginResult extends TokenHolder {
     private boolean isNewUser;
 
@@ -10,4 +7,9 @@ public class SocialNetworkLoginResult extends TokenHolder {
         super(th.getAccessToken(), th.getRefreshToken(), th.getExpiredTime());
         this.isNewUser = isNewUser;
     }
+
+    public boolean getIsNewUser() {
+        return this.isNewUser;
+    }
+
 }

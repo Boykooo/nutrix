@@ -35,4 +35,7 @@ export class TokenService {
     this.cookieService.delete(this.EXPIRED_TOKEN_HADER);
   }
 
+  getAccessToken(): string {
+    return this.cookieService.get(this.ACCESS_TOKEN_HADER);
+  }
 }

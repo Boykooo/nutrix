@@ -1,6 +1,17 @@
-<p>social-network-oauth works!</p>
+<div>
 
-загружается {{loading}}
-<br/>
-<br/>
-новый юзер {{isNewUser}}
+  <div class="auth-form__title">
+    Enter your name
+  </div>
+
+  <!-- Name -->
+  <div class="form-input">
+    <mat-icon onselectstart="return false">account_circle</mat-icon>
+    <input class="input-field" placeholder="Name" formControlName="name"/>
+  </div>
+  <div class="error-holder">
+    <mat-error *ngIf="validation.isDirty('name') && validation.hasError('name', 'required')">Введите имя</mat-error>
+    <mat-error *ngIf="validation.get('name').hasError('minlength')">Минимальная длина имени - 2 символа</mat-error>
+  </div>
+
+</div>

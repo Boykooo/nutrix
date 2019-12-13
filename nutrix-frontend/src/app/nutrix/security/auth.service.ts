@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
-import { TokenService } from "./token.service";
-import { RegisterData } from "./entity/register-data";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { TokenHolder } from "./entity/token-holder";
-import { environment } from "../../../environments/environment";
-import { Credentials } from "./entity/credentials";
-import { tap } from "rxjs/operators";
-import { Router } from "@angular/router";
+import { Injectable }                        from "@angular/core";
+import { TokenService }                      from "./token.service";
+import { RegisterData }                      from "./entity/register-data";
+import { HttpClient }                        from "@angular/common/http";
+import { Observable }                        from "rxjs";
+import { TokenHolder }                       from "./entity/token-holder";
+import { environment }                       from "../../../environments/environment";
+import { Credentials }                       from "./entity/credentials";
+import { tap }                               from "rxjs/operators";
+import { Router }                            from "@angular/router";
 import { SocialNetworkAuthenticationResult } from "./entity/social-network-authentication-result";
 import { SocialNetworkAuthenticationParams } from "../modules/autorization/entity/social-network-authentication-params";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
 
   private readonly url: string = `${environment.api.url}/auth`;
@@ -27,7 +27,11 @@ export class AuthService {
 
   logout() {
     this.tokenService.clear();
-    this.router.navigateByUrl("/");
+    if (this.router.url === '/') {
+      location.reload();
+    } else {
+      this.router.navigateByUrl("/");
+    }
   }
 
   register(registerData: RegisterData): Observable<TokenHolder> {
