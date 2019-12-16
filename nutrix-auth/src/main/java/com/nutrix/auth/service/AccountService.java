@@ -32,6 +32,7 @@ public class AccountService {
         account.setRoles(Collections.singleton(roleService.getDefaultRole()));
         account.setRegDate(Instant.now());
         account.setBlocked(false);
+        account.setEmailApproved(false);
         account = accountRepository.save(account);
         nutrixCoreService.createAccount(AccountConverter.toShort(account.getId(), name));
         return account;

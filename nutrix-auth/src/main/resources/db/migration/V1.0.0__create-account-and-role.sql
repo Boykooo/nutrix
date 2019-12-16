@@ -1,11 +1,12 @@
 create table account
 (
-    id       serial primary key,
-    email    varchar(255) not null,
-    password varchar(255),
-    reg_date timestamp    not null,
-    blocked  boolean      not null,
-    deleted  boolean      not null default false
+    id             serial primary key,
+    email          varchar(255) not null,
+    password       varchar(255),
+    reg_date       timestamp    not null,
+    blocked        boolean      not null,
+    deleted        boolean      not null default false,
+    email_apporved boolean      not null default false
 );
 
 create table role

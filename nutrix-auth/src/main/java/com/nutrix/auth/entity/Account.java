@@ -37,6 +37,9 @@ public class Account {
     @Column(name = "blocked")
     private boolean blocked;
 
+    @Column(name = "email_approved")
+    private boolean emailApproved;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "account_role",
             joinColumns = @JoinColumn(name = "account_id"),
