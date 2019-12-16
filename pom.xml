@@ -11,6 +11,7 @@
 
     <modules>
         <module>nutrix-common</module>
+        <module>nutrix-eureka-server</module>
         <module>nutrix-auth</module>
         <module>nutrix-core</module>
     </modules>
