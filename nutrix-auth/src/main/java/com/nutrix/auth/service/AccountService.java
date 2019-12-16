@@ -1,5 +1,6 @@
 package com.nutrix.auth.service;
 
+import com.nutrix.auth.dto.converter.AccountConverter;
 import com.nutrix.auth.entity.Account;
 import com.nutrix.auth.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.Collections;
 public class AccountService {
 
     private final AccountRepository accountRepository;
+    private final NutrixCoreService nutrixCoreService;
     private final RoleService roleService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -28,10 +30,11 @@ public class AccountService {
         account.setEmail(email);
         account.setPassword(bCryptPasswordEncoder.encode(password));
         account.setRoles(Collections.singleton(roleService.getDefaultRole()));
-        account.setName(name);
         account.setRegDate(Instant.now());
         account.setBlocked(false);
-        return accountRepository.save(account);
+        account = accountRepository.save(account);
+        nutrixCoreService.createAccount(AccountConverter.toShort(account.getId(), name));
+        return account;
     }
 
 }

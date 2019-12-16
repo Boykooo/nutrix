@@ -20,7 +20,7 @@ public class SecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/api/auth/**").permitAll()
+                    .antMatchers("/api/account").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .addFilterAfter(jwtSecurityFilter(), SecurityContextPersistenceFilter.class)

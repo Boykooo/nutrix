@@ -12,7 +12,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtSecurityFilter extends OncePerRequestFilter {
 
-    private static final String TOKEN_HEADER = "at";
+    public static final String TOKEN_HEADER = "at";
     private final SecurityService securityService;
 
     @Override

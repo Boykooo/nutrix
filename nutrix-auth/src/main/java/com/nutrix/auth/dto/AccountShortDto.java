@@ -6,6 +6,6 @@ import lombok.Getter;
 @Getter
 @Builder
 public class AccountShortDto {
+    private Long id;
     private String name;
-    private String photo;
 }

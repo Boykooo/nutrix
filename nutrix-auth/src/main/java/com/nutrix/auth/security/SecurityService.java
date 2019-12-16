@@ -35,7 +35,7 @@ public class SecurityService {
                     .stream()
                     .map(role -> new SimpleGrantedAuthority(ROLE_PREFIX + role))
                     .collect(Collectors.toList());
-            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userInfo, null, roles));
+            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userInfo, token, roles));
             currentUser.build(userInfo);
         } catch (Exception ex) {
             log.error("Authentication has been failed. Couldn't parse token");

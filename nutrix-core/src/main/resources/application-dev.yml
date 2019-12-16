@@ -1,4 +1,11 @@
+server:
+  port: 9081
+
 spring:
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka
   datasource:
     url: jdbc:postgresql://localhost:5432/nutrix_core
     username: nutrix_core_user

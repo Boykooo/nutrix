@@ -2,7 +2,7 @@ create table account
 (
     id       bigint primary key,
     name     varchar(150) not null,
-    photo_id bigint
+    photo_id varchar(255)
 );
 
 create table photo

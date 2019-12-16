@@ -31,9 +31,6 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "reg_date")
     private Instant regDate;
 

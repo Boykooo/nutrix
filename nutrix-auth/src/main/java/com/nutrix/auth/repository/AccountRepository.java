@@ -11,10 +11,4 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Account findByEmail(String email);
 
-    @Modifying
-    @Query("update Account acc " +
-            "set acc.name = :newName " +
-            "where acc.id = :id")
-    void updateName(Long id, String newName);
-
 }
