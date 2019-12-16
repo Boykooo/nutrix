@@ -1,6 +1,6 @@
-package com.nutrix.auth.controller;
+package com.nutrix.core.controller;
 
-import com.nutrix.auth.service.AccountService;
+import com.nutrix.core.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

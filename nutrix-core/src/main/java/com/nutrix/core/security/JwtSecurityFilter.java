@@ -1,4 +1,4 @@
-package com.nutrix.auth.security;
+package com.nutrix.core.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.filter.OncePerRequestFilter;

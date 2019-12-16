@@ -1,4 +1,4 @@
-package com.nutrix.auth.security;
+package com.nutrix.core.security;
 
 import com.nutrix.common.security.AccountInfo;
 import org.springframework.stereotype.Component;

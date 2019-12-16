@@ -7,4 +7,5 @@ import lombok.Getter;
 @Builder
 public class AccountShortDto {
     private String name;
+    private String photo;
 }

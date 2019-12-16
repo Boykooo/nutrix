@@ -39,7 +39,7 @@ public class AuthService {
         }
         account = accountService.createNew(registerData.getEmail(), registerData.getName(), registerData.getPassword());
         var th = tokenService.generate(account);
-        log.info("Creted new account. ID = {}, EMAIL = {}", account.getId(), account.getEmail());
+        log.info("Created new account. ID = {}, EMAIL = {}", account.getId(), account.getEmail());
         return th;
     }
 

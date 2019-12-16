@@ -12,6 +12,7 @@
     <modules>
         <module>nutrix-common</module>
         <module>nutrix-auth</module>
+        <module>nutrix-core</module>
     </modules>
 
 </project>

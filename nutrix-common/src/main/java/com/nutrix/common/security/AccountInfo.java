@@ -16,4 +16,12 @@ public class AccountInfo {
     protected String name;
     protected String email;
     protected List<String> roles;
+
+    public void build(AccountInfo accountInfo) {
+        this.id = accountInfo.getId();
+        this.email = accountInfo.getEmail();
+        this.name = accountInfo.getName();
+        this.roles = accountInfo.getRoles();
+    }
+
 }

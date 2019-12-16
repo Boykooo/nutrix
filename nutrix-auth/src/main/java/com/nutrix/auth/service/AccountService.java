@@ -2,7 +2,6 @@ package com.nutrix.auth.service;
 
 import com.nutrix.auth.entity.Account;
 import com.nutrix.auth.repository.AccountRepository;
-import com.nutrix.auth.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,6 @@ public class AccountService {
     private final AccountRepository accountRepository;
     private final RoleService roleService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final CurrentUser currentUser;
 
     public Account getAccountByEmail(String email) {
         return accountRepository.findByEmail(email);
@@ -36,11 +34,4 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-    public void getCurrentShort() {
-
-    }
-
-    public void updateName(String name) {
-        accountRepository.updateName(currentUser.getId(), name);
-    }
 }
