@@ -1,11 +1,14 @@
 package com.nutrix.auth.dto;
 
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@Builder
-public class AccountShortDto {
+public class AccountShortDto extends RegisterAccountInfoDto {
     private Long id;
-    private String name;
+
+    public AccountShortDto(Long id, RegisterAccountInfoDto accountInfo) {
+        super(accountInfo);
+        this.id = id;
+    }
+
 }

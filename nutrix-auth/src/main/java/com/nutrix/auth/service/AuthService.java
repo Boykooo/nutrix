@@ -2,7 +2,7 @@ package com.nutrix.auth.service;
 
 import com.nutrix.auth.dto.Credentials;
 import com.nutrix.auth.dto.RegisterData;
-import com.nutrix.auth.dto.socialnetwork.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.SocialNetworkAuthenticationParams;
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
 import com.nutrix.auth.dto.token.SocialNetworkLoginResult;
 import com.nutrix.auth.dto.token.TokenHolder;
@@ -37,10 +37,8 @@ public class AuthService {
         if (account != null) {
             throw new AccountAlreadyExistsException();
         }
-        account = accountService.createNew(registerData.getEmail(), registerData.getName(), registerData.getPassword());
-        var th = tokenService.generate(account);
-        log.info("Created new account. ID = {}, EMAIL = {}", account.getId(), account.getEmail());
-        return th;
+        account = accountService.createNew(registerData.getEmail(), registerData.getPassword(), registerData.getAccountInfo());
+        return tokenService.generate(account);
     }
 
     /**
@@ -72,17 +70,10 @@ public class AuthService {
     public TokenHolder login(SocialNetworkAuthenticationParams params) {
         SocialNetworkUser user = socialNetworkAuthenticationManager.authenticate(params);
         var account = accountService.getAccountByEmail(user.getEmail());
-        boolean isNewUser = false;
         if (account == null) {
-            account = accountService.createNew(user.getEmail(), retrieveNameFromEmail(user.getEmail()), params.getCode());
-            isNewUser = true;
+            account = accountService.createNew(user.getEmail(), params.getCode(), params.getAccountInfo());
         }
-        var th = tokenService.generate(account);
-        return new SocialNetworkLoginResult(th, isNewUser);
-    }
-
-    private String retrieveNameFromEmail(String email) {
-        return email.split("@")[0];
+        return tokenService.generate(account);
     }
 
 }

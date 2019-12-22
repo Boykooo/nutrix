@@ -1,6 +1,6 @@
 package com.nutrix.auth.service.social;
 
-import com.nutrix.auth.dto.socialnetwork.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.SocialNetworkAuthenticationParams;
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

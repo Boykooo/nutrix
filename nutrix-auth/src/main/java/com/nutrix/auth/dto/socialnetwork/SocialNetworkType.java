@@ -1,4 +1,4 @@
-package com.nutrix.auth.dto;
+package com.nutrix.auth.dto.socialnetwork;
 
 public enum SocialNetworkType {
     GOOGLE,

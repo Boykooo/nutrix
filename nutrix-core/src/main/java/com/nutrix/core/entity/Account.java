@@ -1,5 +1,7 @@
 package com.nutrix.core.entity;
 
+import com.nutrix.common.dto.Sex;
+import com.nutrix.common.dto.WeightGoal;
 import lombok.Data;
 
 import javax.persistence.Column;

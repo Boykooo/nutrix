@@ -5,6 +5,7 @@ import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.dto.token.TokenWrapper;
 import com.nutrix.auth.entity.Account;
 import com.nutrix.auth.entity.RefreshToken;
+import com.nutrix.common.exception.TokenExpiredException;
 import com.nutrix.common.security.AccountInfo;
 import com.nutrix.common.security.JwtParser;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +44,9 @@ public class TokenService {
     public TokenHolder generate(String refreshToken) {
         Long accountId = JwtParser.parse(refreshToken, tokenKey, true, Long.class);
         RefreshToken rt = refreshTokenService.getByAccountId(accountId);
+        if (!rt.getToken().equals(refreshToken)) {
+            throw new TokenExpiredException();
+        }
         return tokenService.generate(rt.getAccount());
     }
 

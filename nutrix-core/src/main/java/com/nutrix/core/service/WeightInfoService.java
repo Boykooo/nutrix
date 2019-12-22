@@ -19,7 +19,7 @@ public class WeightInfoService {
         var weightInfo = WeightInfoConverter.convert(newAccountDto);
         weightInfo.setAccountId(accountId);
         weightInfoRepository.save(weightInfo);
-        weightHistoryService.save(accountId, newAccountDto.getCurrentWeight());
+        weightHistoryService.save(accountId, newAccountDto.getStartWeight());
     }
 
 }

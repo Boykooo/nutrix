@@ -1,4 +1,4 @@
-package com.nutrix.core.entity;
+package com.nutrix.common.dto;
 
 public enum  WeightGoal {
     UP,

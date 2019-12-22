@@ -1,7 +1,7 @@
 package com.nutrix.auth.service.social;
 
-import com.nutrix.auth.dto.SocialNetworkType;
-import com.nutrix.auth.dto.socialnetwork.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.socialnetwork.SocialNetworkType;
+import com.nutrix.auth.dto.SocialNetworkAuthenticationParams;
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
 
 public interface SocialNetworkConnector {
