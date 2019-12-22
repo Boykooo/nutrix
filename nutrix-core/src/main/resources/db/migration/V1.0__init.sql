@@ -10,17 +10,16 @@ create table account
 (
     id       bigint primary key,
     name     varchar(150) not null,
-    photo_id varchar(100),
-    goal     varchar(100) not null,
     sex      varchar(100) not null,
-    birthday date         not null,
+    goal     varchar(100) not null,
+    age      smallint     not null,
     height   smallint     not null,
+    photo_id varchar(100),
     constraint fk_photo_id foreign key (photo_id) references photo (id)
 );
 
 alter table photo
     add constraint fk_owner_id foreign key (owner_id) references account (id);
-
 
 -- #############################            WEIGHT          #############################
 
@@ -35,10 +34,9 @@ create table weight_info
 
 create table weight_history
 (
-    account_id bigint primary key,
-    date       date not null ,
+    id         bigint primary key,
+    account_id bigint   not null,
     weight     smallint not null,
+    date       date     not null,
     constraint fk_account_id foreign key (account_id) references account (id)
 )
-
-

@@ -21,14 +21,31 @@ public class Account {
     @Column(name = "name")
     private String name;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "sex")
+    @Enumerated(EnumType.STRING)
     private Sex sex;
+
+    @Column(name = "goal")
+    @Enumerated(EnumType.STRING)
+    private WeightGoal weightGoal;
+
+    @Column(name = "age")
+    private int age;
+
+    @Column(name = "height")
+    private int height;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "photo_id")
     private Photo photo;
 
+    private Account(Long id) {
+        this.id = id;
+    }
+
+    public static Account of(Long id) {
+        return new Account(id);
+    }
 
 }
 
