@@ -4,11 +4,11 @@ import { NameValidation }           from "./name.validation";
 import { AccountService }           from "../../../../shared/service/account.service";
 
 @Component({
-  selector: 'app-social-network-o-auth',
-  templateUrl: './social-network-o-auth.component.html',
-  styleUrls: ['./social-network-o-auth.component.sass']
+  selector: 'app-social-network-o-auth-receiver',
+  templateUrl: './social-network-o-auth-receiver.component.html',
+  styleUrls: ['./social-network-o-auth-receiver.component.sass']
 })
-export class SocialNetworkOAuthComponent implements OnInit {
+export class SocialNetworkOAuthReceiverComponent implements OnInit {
 
   validation: NameValidation = new NameValidation();
   loading = true;

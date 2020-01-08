@@ -1,14 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SignUpValidation }                         from "./sign-up.validation";
-import { AuthService }                              from "../../../../security/auth.service";
+import { AuthService }                              from "../../../../../security/auth.service";
 import { Router }                                   from "@angular/router";
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.sass']
+  selector: 'app-create-account',
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.sass']
 })
-export class SignUpComponent implements OnInit {
+export class CreateAccountComponent implements OnInit {
 
   @ViewChild("passwordInput", { static: true })
   passwordInput: ElementRef<HTMLInputElement>;

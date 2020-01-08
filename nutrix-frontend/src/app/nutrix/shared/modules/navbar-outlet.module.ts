@@ -7,6 +7,9 @@ import { RouterModule }          from "@angular/router";
   declarations: [
     NavbarOutletComponent
   ],
+  exports: [
+    NavbarOutletComponent
+  ],
   imports: [
     NavbarModule,
     RouterModule.forChild([])
