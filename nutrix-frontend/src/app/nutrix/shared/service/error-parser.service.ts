@@ -1,8 +1,8 @@
 import { Injectable }        from "@angular/core";
 import { TranslateService }  from "@ngx-translate/core";
 import { HttpErrorResponse } from "@angular/common/http";
-import { ErrorInfo }         from "../entity/system/error-info";
 import { Observable }        from "rxjs";
+import { ErrorInfo } from "../model/system/error-info";
 
 @Injectable({ providedIn: 'root' })
 export class ErrorParserService {

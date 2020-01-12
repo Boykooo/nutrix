@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { RegisterData }                       from "../../../../../security/entity/register-data";
-import { BaseFormGroup }                      from "../../../../../shared/entity/system/base-form-group";
+import { BaseFormGroup } from "../../../../../shared/model/system/base-form-group";
 
 export class SignUpValidation extends BaseFormGroup {
 

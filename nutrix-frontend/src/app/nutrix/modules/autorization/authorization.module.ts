@@ -13,6 +13,7 @@ import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component'
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatStepperModule } from "@angular/material/stepper";
 import { WeightStepComponent } from './components/sign-up/weight-step/weight-step.component';
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { WeightStepComponent } from './components/sign-up/weight-step/weight-ste
     MatCheckboxModule,
     MatInputModule,
     MatTabsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatButtonModule
   ]
 })
 export class AuthorizationModule {

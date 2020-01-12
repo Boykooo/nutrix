@@ -1,19 +1,20 @@
 <div class="stepper" [ngStyle]="{'width': 20 * step + '%'}">
 </div>
+<button mat-icon-button>
+  <mat-icon *ngIf="step > 1"
+            class="c-secondary-text"
+            (click)="back()">
+    keyboard_backspace
+  </mat-icon>
+</button>
 <mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step state="done">
-    <app-weight-step></app-weight-step>
-    <button (click)="next()">
-      next
-    </button>
+  <mat-step>
+    <app-weight-step (goalSelected)="next()"></app-weight-step>
   </mat-step>
-  <mat-step state="done">
+  <mat-step>
     <app-create-account></app-create-account>
-    <button (click)="back()">
-      back
-    </button>
   </mat-step>
-  <mat-step state="done">
+  <mat-step>
     <app-create-account></app-create-account>
   </mat-step>
   <mat-step>

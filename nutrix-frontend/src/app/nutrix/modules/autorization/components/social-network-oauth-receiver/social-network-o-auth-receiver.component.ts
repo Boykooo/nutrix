@@ -1,6 +1,5 @@
 import { Component, OnInit }        from '@angular/core';
 import { SocialNetworkAuthService } from "../../service/social-network-auth-service";
-import { NameValidation }           from "./name.validation";
 import { AccountService }           from "../../../../shared/service/account.service";
 
 @Component({
@@ -10,7 +9,6 @@ import { AccountService }           from "../../../../shared/service/account.ser
 })
 export class SocialNetworkOAuthReceiverComponent implements OnInit {
 
-  validation: NameValidation = new NameValidation();
   loading = true;
   isNewUser = false;
 
@@ -27,10 +25,7 @@ export class SocialNetworkOAuthReceiverComponent implements OnInit {
   }
 
   updateName() {
-    if (this.validation.valid) {
-      let name = this.validation.getName();
-      this.accountService.updateName(name);
-    }
+
   }
 
 }
