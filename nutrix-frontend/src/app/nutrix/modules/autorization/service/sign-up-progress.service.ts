@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { UserGoal } from "../../../shared/model/entity/user-goal";
 import { SignUpParams } from "../entity/sign-up-params";
-import { Sex } from "../../../shared/model/entity/sex";
+import { Gender } from "../../../shared/model/entity/gender";
 
 @Injectable({providedIn: 'root'})
 export class SignUpProgressService {
@@ -18,9 +18,9 @@ export class SignUpProgressService {
     this.save(params);
   }
 
-  setSex(sex: Sex) {
+  setGender(gender: Gender) {
     let params = this.getParams();
-    params.sex = sex;
+    params.gender = gender;
     this.save(params);
   }
 

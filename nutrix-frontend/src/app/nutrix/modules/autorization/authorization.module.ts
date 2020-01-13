@@ -12,8 +12,9 @@ import { CreateAccountComponent } from "./components/sign-up/create-account/crea
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatStepperModule } from "@angular/material/stepper";
-import { WeightStepComponent } from './components/sign-up/weight-step/weight-step.component';
 import { MatButtonModule } from "@angular/material/button";
+import { GenderStepComponent } from './components/sign-up/gender-step/gender-step.component';
+import { GoalStepComponent } from "./components/sign-up/goal-step/goal-step.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatButtonModule } from "@angular/material/button";
     SocialNetworkLoginComponent,
     SocialNetworkOAuthReceiverComponent,
     SignUpComponent,
-    WeightStepComponent,
+    GoalStepComponent,
+    GenderStepComponent,
   ],
   imports: [
     BaseLayoutModule,

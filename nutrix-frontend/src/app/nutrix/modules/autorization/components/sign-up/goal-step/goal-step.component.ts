@@ -3,11 +3,11 @@ import { UserGoal } from "../../../../../shared/model/entity/user-goal";
 import { SignUpProgressService } from "../../../service/sign-up-progress.service";
 
 @Component({
-  selector: 'app-weight-step',
-  templateUrl: './weight-step.component.html',
-  styleUrls: ['./weight-step.component.sass']
+  selector: 'app-goal-step',
+  templateUrl: './goal-step.component.html',
+  styleUrls: ['./goal-step.component.sass']
 })
-export class WeightStepComponent {
+export class GoalStepComponent {
 
   @Output()
   goalSelected = new EventEmitter();

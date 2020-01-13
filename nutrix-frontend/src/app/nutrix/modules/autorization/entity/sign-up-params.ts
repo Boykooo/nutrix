@@ -1,7 +1,7 @@
 import { UserGoal } from "../../../shared/model/entity/user-goal";
-import { Sex } from "../../../shared/model/entity/sex";
+import { Gender } from "../../../shared/model/entity/gender";
 
 export class SignUpParams {
   goal: UserGoal;
-  sex: Sex;
+  gender: Gender;
 }

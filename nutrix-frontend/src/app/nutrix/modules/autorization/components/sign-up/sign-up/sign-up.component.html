@@ -1,23 +1,35 @@
-<div class="stepper" [ngStyle]="{'width': 20 * step + '%'}">
+<div class="signup__block">
+
+  <!--  Stepper Progress Bar  -->
+  <div class="stepper" [ngStyle]="{'width': 20 * step + '%'}">
+  </div>
+
+  <!--  Back button  -->
+  <button mat-icon-button *ngIf="step > 1">
+    <mat-icon class="c-secondary-text"
+              (click)="back()">
+      keyboard_backspace
+    </mat-icon>
+  </button>
+
+  <!--  Fix top margin when back button is hidden  -->
+  <div *ngIf="step == 1" style="padding-top: 40px">
+  </div>
+
+  <!--  Stepper  -->
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step>
+      <app-goal-step (goalSelected)="next()"></app-goal-step>
+    </mat-step>
+    <mat-step>
+      <app-gender-step (genderSelected)="next()"></app-gender-step>
+    </mat-step>
+    <mat-step>
+      <app-create-account></app-create-account>
+    </mat-step>
+    <mat-step>
+      <app-create-account></app-create-account>
+    </mat-step>
+  </mat-horizontal-stepper>
+
 </div>
-<button mat-icon-button>
-  <mat-icon *ngIf="step > 1"
-            class="c-secondary-text"
-            (click)="back()">
-    keyboard_backspace
-  </mat-icon>
-</button>
-<mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step>
-    <app-weight-step (goalSelected)="next()"></app-weight-step>
-  </mat-step>
-  <mat-step>
-    <app-create-account></app-create-account>
-  </mat-step>
-  <mat-step>
-    <app-create-account></app-create-account>
-  </mat-step>
-  <mat-step>
-    <app-create-account></app-create-account>
-  </mat-step>
-</mat-horizontal-stepper>
