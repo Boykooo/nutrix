@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import "nutrix/colors";
+
+$primary-palette: (
+50: $primary-color,
+100: $primary-color,
+200: $primary-color,
+300: $primary-color,
+400: $primary-color,
+500: $primary-color,
+600: $primary-color,
+700: $primary-color,
+800: $primary-color,
+900: $primary-color,
+A100: $primary-color,
+A200: $primary-color,
+A400: $primary-color,
+A700: $primary-color,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+)
+);
+
+$primary: mat-palette($primary-palette, 800);
+$accent: mat-palette($mat-orange, 200);
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);

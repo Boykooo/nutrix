@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService }       from "../../../../security/auth.service";
+import { LoginService }      from "../../../autorization/service/login.service";
+import { SecurityService }   from "../../../../security/security.service";
 
 @Component({
   selector: 'app-authorization',
@@ -10,15 +11,15 @@ export class AuthorizationComponent implements OnInit {
 
   isAuthorized: boolean;
 
-  constructor(private authService: AuthService) {
-    this.isAuthorized = authService.isAuthorized();
+  constructor(private securityService: SecurityService) {
+    this.isAuthorized = securityService.isAuthorized();
   }
 
   ngOnInit() {
   }
 
   logout() {
-    this.authService.logout();
+    this.securityService.logout();
   }
 
 

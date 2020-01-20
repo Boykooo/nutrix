@@ -1,5 +1,5 @@
 import { Component, OnInit }        from '@angular/core';
-import { SocialNetworkAuthService } from "../../service/social-network-auth-service";
+import { SocialNetworkAuthService } from "../../service/oauth/social-network-auth-service";
 import { AccountService }           from "../../../../shared/service/account.service";
 
 @Component({
@@ -10,22 +10,15 @@ import { AccountService }           from "../../../../shared/service/account.ser
 export class SocialNetworkOAuthReceiverComponent implements OnInit {
 
   loading = true;
-  isNewUser = false;
 
-  constructor(private socialNetworkRedirectService: SocialNetworkAuthService,
-              private accountService: AccountService) {
+  constructor(private socialNetworkRedirectService: SocialNetworkAuthService) {
   }
 
   ngOnInit() {
     this.socialNetworkRedirectService.process()
       .subscribe(res => {
         this.loading = false;
-        this.isNewUser = res.isNewUser;
       })
-  }
-
-  updateName() {
-
   }
 
 }

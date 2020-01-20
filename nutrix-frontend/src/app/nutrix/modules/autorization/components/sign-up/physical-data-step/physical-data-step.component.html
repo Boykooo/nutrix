@@ -1,0 +1,67 @@
+<div class="signup__step">
+  <div class="signup__step">
+
+    <div>
+      <!--  Title  -->
+      <div class="auth-form__title-small">
+        Your physical data
+      </div>
+
+      <!--  Form  -->
+      <form [formGroup]="validation" class="auth-form physical-data-form" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="form-input">
+          <img src="/assets/images/icons/birthday.png"/>
+          <input [matDatepicker]="picker" class="input-field" placeholder="Birthday" required formControlName="birthday"/>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+        <div class="error-holder">
+          <mat-error *ngIf="validation.isDirty('birthday') && validation.hasError('birthday', 'required')">
+            Введите свой день рождения
+          </mat-error>
+        </div>
+
+        <!-- Height -->
+        <div class="form-input">
+          <img src="/assets/images/icons/height.png"/>
+          <input class="input-field" placeholder="Your height" formControlName="height"/>
+        </div>
+        <div class="error-holder">
+          <mat-error *ngIf="validation.isDirty('height') && validation.hasError('height', 'required')">
+            Введите свой рост
+          </mat-error>
+        </div>
+
+        <!-- Weight -->
+        <div class="form-input">
+          <img src="/assets/images/icons/weight.png"/>
+          <input class="input-field" placeholder="Your weight" formControlName="weight"/>
+        </div>
+        <div class="error-holder">
+          <mat-error *ngIf="validation.isDirty('weight') && validation.hasError('weight', 'required')">
+            Введите свой текущий вес
+          </mat-error>
+        </div>
+
+        <!-- Target Weight -->
+        <div class="form-input">
+          <img src="/assets/images/icons/goal.png"/>
+          <input class="input-field" placeholder="Target weight" formControlName="targetWeight"/>
+        </div>
+        <div class="error-holder">
+          <mat-error *ngIf="validation.isDirty('targetWeight') && validation.hasError('targetWeight', 'required')">
+            Введите свой желаемый вес
+          </mat-error>
+        </div>
+
+        <button class="btn-accent btn-big btn-next" (click)="next()">
+          Next
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>

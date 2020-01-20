@@ -10,9 +10,9 @@ create table account
 (
     id       bigint primary key,
     name     varchar(150) not null,
-    sex      varchar(100) not null,
+    gender   varchar(100) not null,
     goal     varchar(100) not null,
-    age      smallint     not null,
+    birthday date         not null,
     height   smallint     not null,
     photo_id varchar(100),
     constraint fk_photo_id foreign key (photo_id) references photo (id)

@@ -1,8 +1,9 @@
 package com.nutrix.core.entity;
 
-import com.nutrix.common.dto.Sex;
+import com.nutrix.common.dto.Gender;
 import com.nutrix.common.dto.WeightGoal;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +13,11 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import java.time.Instant;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Account {
 
     @Id
@@ -23,16 +26,16 @@ public class Account {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "sex")
+    @Column(name = "gender")
     @Enumerated(EnumType.STRING)
-    private Sex sex;
+    private Gender gender;
 
     @Column(name = "goal")
     @Enumerated(EnumType.STRING)
     private WeightGoal weightGoal;
 
-    @Column(name = "age")
-    private int age;
+    @Column(name = "birthday")
+    private Instant birthday;
 
     @Column(name = "height")
     private int height;

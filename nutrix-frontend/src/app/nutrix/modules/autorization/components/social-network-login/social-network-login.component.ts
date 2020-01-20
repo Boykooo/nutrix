@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { GoogleOAuthService } from "../../service/google-o-auth.service";
+import { Component, OnInit }  from '@angular/core';
+import { GoogleOAuthService } from "../../service/oauth/google-o-auth.service";
 
 @Component({
   selector: 'app-social-network-login',

@@ -1,6 +1,6 @@
 package com.nutrix.common.dto;
 
-public enum Sex {
+public enum Gender {
     MALE,
     FEMALE
 }

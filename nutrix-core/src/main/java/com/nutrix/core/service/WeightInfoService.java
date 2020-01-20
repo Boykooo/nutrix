@@ -16,10 +16,9 @@ public class WeightInfoService {
 
     @Transactional
     public void create(Long accountId, NewAccountDto newAccountDto) {
-        var weightInfo = WeightInfoConverter.convert(newAccountDto);
-        weightInfo.setAccountId(accountId);
+        var weightInfo = WeightInfoConverter.convert(accountId, newAccountDto);
         weightInfoRepository.save(weightInfo);
-        weightHistoryService.save(accountId, newAccountDto.getStartWeight());
+        weightHistoryService.save(accountId, weightInfo.getCurrentWeight());
     }
 
 }

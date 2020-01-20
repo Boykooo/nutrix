@@ -1,6 +1,5 @@
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { RegisterData }                       from "../../../../../security/entity/register-data";
-import { BaseFormGroup } from "../../../../../shared/model/system/base-form-group";
+import { FormControl, Validators } from "@angular/forms";
+import { BaseFormGroup }           from "../../../../../shared/model/system/base-form-group";
 
 export class SignUpValidation extends BaseFormGroup {
 
@@ -13,12 +12,8 @@ export class SignUpValidation extends BaseFormGroup {
     })
   }
 
-  toEntity(): RegisterData {
-    return {
-      name: this.get('name').value,
-      email: this.get('email').value,
-      password: this.get('password').value
-    }
+  getProperty(name: string) {
+    return this.get(name).value;
   }
 
 }

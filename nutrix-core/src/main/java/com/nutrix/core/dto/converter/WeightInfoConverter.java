@@ -5,10 +5,11 @@ import com.nutrix.core.entity.WeightInfo;
 
 public final class WeightInfoConverter {
 
-    public static WeightInfo convert(NewAccountDto newAccountDto) {
+    public static WeightInfo convert(Long accountId, NewAccountDto newAccountDto) {
         var weightInfo = new WeightInfo();
-        weightInfo.setStartWeight(newAccountDto.getStartWeight());
-        weightInfo.setCurrentWeight(newAccountDto.getCurrentWeight());
+        weightInfo.setAccountId(accountId);
+        weightInfo.setStartWeight(newAccountDto.getWeight());
+        weightInfo.setCurrentWeight(newAccountDto.getWeight());
         weightInfo.setTargetWeight(newAccountDto.getTargetWeight());
         return weightInfo;
     }

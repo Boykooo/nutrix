@@ -1,7 +1,6 @@
 package com.nutrix.common.utils;
 
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,9 +24,8 @@ public final class DateUtils {
         return new Date().after(date);
     }
 
-    public static String getReadableDurationTime(Instant first, Instant second) {
-        long s = Duration.between(first, second).getSeconds();
-        return String.format("%d:%02d:%02d", s / 3600, (s % 3600) / 60, (s % 60));
+    public static Instant parse(String date) {
+        return Instant.parse(date);
     }
 
 }

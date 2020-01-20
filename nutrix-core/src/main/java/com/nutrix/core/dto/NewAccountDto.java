@@ -1,6 +1,6 @@
 package com.nutrix.core.dto;
 
-import com.nutrix.common.dto.Sex;
+import com.nutrix.common.dto.Gender;
 import com.nutrix.common.dto.WeightGoal;
 import lombok.Getter;
 
@@ -8,10 +8,10 @@ import lombok.Getter;
 public class NewAccountDto {
     private long id;
     private String name;
-    private WeightGoal weightGoal;
-    private Sex sex;
-    private int age;
+    private WeightGoal goal;
+    private Gender gender;
+    private String birthday;
     private int height;
-    private int startWeight;
+    private int weight;
     private int targetWeight;
 }

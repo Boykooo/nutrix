@@ -2,7 +2,7 @@ package com.nutrix.auth.service.social;
 
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkType;
 import com.nutrix.auth.dto.converter.SocialNetworkUserConverter;
-import com.nutrix.auth.dto.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.register.SocialNetworkRegisterData;
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
 import com.nutrix.auth.dto.socialnetwork.google.GoogleTokenHolder;
 import com.nutrix.auth.dto.socialnetwork.google.GoogleUserInfo;
@@ -33,7 +33,7 @@ public class GoogleConnector implements SocialNetworkConnector {
     private String clientSecret;
 
     @Override
-    public SocialNetworkUser authenticate(SocialNetworkAuthenticationParams params) {
+    public SocialNetworkUser authenticate(SocialNetworkRegisterData params) {
         GoogleTokenHolder th = getAccessToken(params);
         GoogleUserInfo userInfo = getUserInfo(th);
         return SocialNetworkUserConverter.convert(userInfo);
@@ -44,7 +44,7 @@ public class GoogleConnector implements SocialNetworkConnector {
         return type == SocialNetworkType.GOOGLE;
     }
 
-    private GoogleTokenHolder getAccessToken(SocialNetworkAuthenticationParams params) {
+    private GoogleTokenHolder getAccessToken(SocialNetworkRegisterData params) {
         URI uri = UriComponentsBuilder.fromHttpUrl(AUTHENTICATE_URL)
                 .queryParam("code", params.getCode())
                 .queryParam("client_id", clientId)

@@ -1,6 +1,6 @@
 package com.nutrix.auth.service;
 
-import com.nutrix.auth.dto.RegisterAccountInfoDto;
+import com.nutrix.auth.dto.register.AccountPhysicalDataDto;
 import com.nutrix.auth.dto.converter.AccountConverter;
 import com.nutrix.auth.entity.Account;
 import com.nutrix.auth.repository.AccountRepository;
@@ -17,7 +17,6 @@ import java.util.Collections;
 @Service
 @RequiredArgsConstructor
 public class AccountService {
-
     private final AccountRepository accountRepository;
     private final NutrixCoreService nutrixCoreService;
     private final RoleService roleService;
@@ -28,7 +27,7 @@ public class AccountService {
     }
 
     @Transactional
-    public Account createNew(String email, String password, RegisterAccountInfoDto accountInfo) {
+    public Account createNew(String email, String password, AccountPhysicalDataDto accountInfo) {
         Account account = new Account();
         account.setEmail(email);
         account.setPassword(bCryptPasswordEncoder.encode(password));

@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SignInValidation }                         from "./sign-in.validation";
-import { AuthService }                              from "../../../../security/auth.service";
+import { SecurityService }                          from "../../../../security/security.service";
 import { ErrorParserService }                       from "../../../../shared/service/error-parser.service";
 import { HttpErrorResponse }                        from "@angular/common/http";
 import { Router }                                   from "@angular/router";
+import { LoginService }                             from "../../service/login.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -19,7 +20,7 @@ export class SignInComponent implements OnInit {
   passwordVisible: boolean;
   signInError: string = null;
 
-  constructor(private authService: AuthService,
+  constructor(private loginService: LoginService,
               private router: Router,
               private errorParserService: ErrorParserService) {
   }
@@ -39,7 +40,7 @@ export class SignInComponent implements OnInit {
   login() {
     if (this.validation.valid) {
       let credentials = this.validation.toCredentials();
-      this.authService.login(credentials)
+      this.loginService.login(credentials)
         .subscribe(
           () => {
             this.signInError = null;

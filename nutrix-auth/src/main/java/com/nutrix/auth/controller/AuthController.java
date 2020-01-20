@@ -1,8 +1,8 @@
 package com.nutrix.auth.controller;
 
-import com.nutrix.auth.dto.Credentials;
-import com.nutrix.auth.dto.RegisterData;
-import com.nutrix.auth.dto.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.register.Credentials;
+import com.nutrix.auth.dto.register.RegisterData;
+import com.nutrix.auth.dto.register.SocialNetworkRegisterData;
 import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +42,7 @@ public class AuthController {
     }
 
     @PostMapping("/social")
-    public ResponseEntity login(@RequestBody @Valid SocialNetworkAuthenticationParams params) {
+    public ResponseEntity login(@RequestBody @Valid SocialNetworkRegisterData params) {
         TokenHolder tokenHolder = authService.login(params);
         return ResponseEntity.ok(tokenHolder);
     }

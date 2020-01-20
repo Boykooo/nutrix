@@ -1,10 +1,9 @@
 package com.nutrix.auth.service;
 
-import com.nutrix.auth.dto.Credentials;
-import com.nutrix.auth.dto.RegisterData;
-import com.nutrix.auth.dto.SocialNetworkAuthenticationParams;
+import com.nutrix.auth.dto.register.Credentials;
+import com.nutrix.auth.dto.register.RegisterData;
+import com.nutrix.auth.dto.register.SocialNetworkRegisterData;
 import com.nutrix.auth.dto.socialnetwork.SocialNetworkUser;
-import com.nutrix.auth.dto.token.SocialNetworkLoginResult;
 import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.exception.AccountAlreadyExistsException;
 import com.nutrix.auth.exception.AccountOrPasswordIncorrectException;
@@ -37,7 +36,7 @@ public class AuthService {
         if (account != null) {
             throw new AccountAlreadyExistsException();
         }
-        account = accountService.createNew(registerData.getEmail(), registerData.getPassword(), registerData.getAccountInfo());
+        account = accountService.createNew(registerData.getEmail(), registerData.getPassword(), registerData.getPhysicalData());
         return tokenService.generate(account);
     }
 
@@ -67,11 +66,11 @@ public class AuthService {
     /**
      * Register or login via social network OAuth
      */
-    public TokenHolder login(SocialNetworkAuthenticationParams params) {
+    public TokenHolder login(SocialNetworkRegisterData params) {
         SocialNetworkUser user = socialNetworkAuthenticationManager.authenticate(params);
         var account = accountService.getAccountByEmail(user.getEmail());
         if (account == null) {
-            account = accountService.createNew(user.getEmail(), params.getCode(), params.getAccountInfo());
+            account = accountService.createNew(user.getEmail(), params.getCode(), params.getPhysicalData());
         }
         return tokenService.generate(account);
     }
