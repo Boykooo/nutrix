@@ -4,7 +4,7 @@ import { Gender }   from "../../../shared/model/entity/gender";
 export class AccountPhysicalData {
   name: string;
   goal: UserGoal;
-  sex: Gender;
+  gender: Gender;
   birthday: string;
   height: number;
   weight: number;

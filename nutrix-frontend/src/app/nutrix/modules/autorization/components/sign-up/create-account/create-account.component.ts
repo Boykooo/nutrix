@@ -44,6 +44,7 @@ export class CreateAccountComponent implements OnInit {
 
   getRegisterData(): CredentialsRegisterData {
     let physicalData = this.signUpProgressService.getProgress();
+    physicalData.name = this.validation.getProperty('name');
     return {
       email: this.validation.getProperty("email"),
       password: this.validation.getProperty("password"),

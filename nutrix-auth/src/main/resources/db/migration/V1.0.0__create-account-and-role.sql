@@ -6,7 +6,7 @@ create table account
     reg_date       timestamp    not null,
     blocked        boolean      not null,
     deleted        boolean      not null default false,
-    email_apporved boolean      not null default false
+    email_approved boolean      not null default false
 );
 
 create table role

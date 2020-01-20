@@ -29,7 +29,7 @@ export class SignUpProgressService {
 
   setGender(gender: Gender) {
     let params = this.getParams();
-    params.sex = gender;
+    params.gender = gender;
     this.save(params);
   }
 

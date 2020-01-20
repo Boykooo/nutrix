@@ -8,6 +8,7 @@ public final class AccountConverter {
 
     public static Account convert(NewAccountDto newAccount) {
         var account = new Account();
+        account.setId(newAccount.getId());
         account.setName(newAccount.getName());
         account.setBirthday(DateUtils.parse(newAccount.getBirthday()));
         account.setHeight(newAccount.getHeight());

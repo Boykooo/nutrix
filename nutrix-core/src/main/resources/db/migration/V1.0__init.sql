@@ -34,7 +34,7 @@ create table weight_info
 
 create table weight_history
 (
-    id         bigint primary key,
+    id         serial primary key,
     account_id bigint   not null,
     weight     smallint not null,
     date       date     not null,
