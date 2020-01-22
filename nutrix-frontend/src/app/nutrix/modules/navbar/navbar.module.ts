@@ -3,6 +3,7 @@ import { NavbarComponent }        from "./components/navbar/navbar.component";
 import { RouterModule }           from "@angular/router";
 import { AuthorizationComponent } from "./components/authorization/authorization.component";
 import { BaseLayoutModule }       from "../../shared/modules/base-layout.module";
+import { HttpTranslateModule }    from "../../shared/modules/http-translate.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { BaseLayoutModule }       from "../../shared/modules/base-layout.module"
   ],
   imports: [
     BaseLayoutModule,
-    RouterModule.forChild([])
+    RouterModule.forChild([]),
+    HttpTranslateModule
   ],
   exports: [
     NavbarComponent

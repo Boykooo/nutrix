@@ -1,0 +1,12 @@
+{
+  "navbar": {
+    "blog": "Blog",
+    "recipes": "Recipes",
+    "сommunity": "Community",
+    "pricing": "Pricing",
+    "login": "Login",
+    "registration": "Registration",
+    "dairy": "My Dairy",
+    "private": "Личный кабинет"
+  }
+}

@@ -1,17 +1,17 @@
 <div class="navbar" fxLayout="row" fxLayoutAlign="space-between center">
+
   <div class="navbar__offset">
-
     <a routerLink="/" class="unset-link">NUTRIX</a>
-
     <span class="navbar__links" fxFlexOffset="40">
-      <a routerLink="/blog">Blog</a>
-      <a routerLink="/blog">Recipes</a>
-      <a routerLink="/blog">Community</a>
-      <a routerLink="/blog">Pricing</a>
+      <a routerLink="/blog">{{"navbar.blog" | translate}}</a>
+      <a routerLink="/blog">{{"navbar.recipes" | translate}}</a>
+      <a routerLink="/blog">{{"navbar.сommunity" | translate}}</a>
+      <a routerLink="/blog">{{"navbar.pricing" | translate}}</a>
     </span>
-
   </div>
+
   <div class="navbar__offset">
     <app-authorization></app-authorization>
   </div>
+
 </div>
