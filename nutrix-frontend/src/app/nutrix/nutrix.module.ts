@@ -32,7 +32,7 @@ import { JwtInterceptor }                      from "./security/jwt.interceptor"
 export class NutrixModule {
 
   constructor(private translateService: TranslateService) {
-    translateService.use('ru');
+    translateService.use('en');
   }
 
 }

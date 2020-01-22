@@ -1,0 +1,9 @@
+{
+  "login": {
+    "title": "Welcome back!",
+    "alternative": "or use your email for login",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login"
+  }
+}

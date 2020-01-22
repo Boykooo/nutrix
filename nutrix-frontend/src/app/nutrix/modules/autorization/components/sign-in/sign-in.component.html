@@ -1,7 +1,7 @@
 <div fxLayout="column">
 
   <div class="auth-form__title">
-    Welcome back!
+    {{"login.title" | translate}}
   </div>
 
   <app-social-network-login class="social-networks">
@@ -10,7 +10,7 @@
   <div class="auth-form__wrapper">
 
     <div class="auth-form__alternative">
-      or use your email for login
+      {{"login.alternative" | translate}}
     </div>
 
     <!-- Register Form -->
@@ -23,7 +23,7 @@
       <!-- Email -->
       <div class="form-input">
         <mat-icon onselectstart="return false">email</mat-icon>
-        <input class="input-field" placeholder="Email" formControlName="email"/>
+        <input class="input-field" [placeholder]="'login.email' | translate" formControlName="email"/>
       </div>
       <div class="error-holder">
         <mat-error *ngIf="validation.isDirty('email') && validation.hasError('email', 'required')">Введите email</mat-error>
@@ -33,7 +33,7 @@
       <!-- Password -->
       <div class="form-input">
         <mat-icon onselectstart="return false">lock</mat-icon>
-        <input #passwordInput class="input-field" placeholder="Password" type="password" formControlName="password"/>
+        <input #passwordInput class="input-field" [placeholder]="'login.password' | translate" type="password" formControlName="password"/>
         <mat-icon class="visibility-button" (click)="togglePasswordVisible()" onselectstart="return false">
           {{passwordVisible ? 'visibility' : 'visibility_off'}}
         </mat-icon>
@@ -44,7 +44,7 @@
       </div>
 
       <button class="btn-accent btn-big login-margin" (click)="login()" type="submit">
-        Login
+        {{"login.login" | translate}}
       </button>
 
     </form>

@@ -7,10 +7,10 @@ import { SocialNetworkLoginComponent } from './components/social-network-login/s
 import { MatIconModule } from "@angular/material/icon";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material/input";
-import { SocialNetworkOAuthReceiverComponent } from "./components/social-network-oauth-receiver/social-network-o-auth-receiver.component";
-import { CreateAccountComponent } from "./components/sign-up/create-account/create-account.component";
-import { SignUpComponent }           from './components/sign-up/sign-up/sign-up.component';
-import { MatTabsModule }             from "@angular/material/tabs";
+import { SocialNetworkOAuthReceiverComponent }  from "./components/social-network-oauth-receiver/social-network-o-auth-receiver.component";
+import { CreateAccountComponent }               from "./components/sign-up/create-account/create-account.component";
+import { SignUpComponent }                      from './components/sign-up/sign-up/sign-up.component';
+import { MatTabsModule }                        from "@angular/material/tabs";
 import { MatStepperModule }                     from "@angular/material/stepper";
 import { MatButtonModule }                      from "@angular/material/button";
 import { GenderStepComponent }                  from './components/sign-up/gender-step/gender-step.component';
@@ -18,6 +18,7 @@ import { GoalStepComponent }                    from "./components/sign-up/goal-
 import { PhysicalDataStepComponent }            from './components/sign-up/physical-data-step/physical-data-step.component';
 import { MatDatepickerModule }                  from "@angular/material/datepicker";
 import { MAT_DATE_LOCALE, MatNativeDateModule } from "@angular/material/core";
+import { HttpTranslateModule }                  from "../../shared/modules/http-translate.module";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from "@angular/material/core";
   ],
   imports: [
     BaseLayoutModule,
+    HttpTranslateModule,
     AuthorizationRoutingModule,
     MatIconModule,
     MatCheckboxModule,
