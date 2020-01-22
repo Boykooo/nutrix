@@ -37,8 +37,8 @@ public class SecurityService {
                     .collect(Collectors.toList());
             SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userInfo, null, roles));
             currentUser.build(userInfo);
-        } catch (Exception ex) {
-            log.error("Authentication has been failed. Couldn't parse token");
+        } catch (Throwable ex) {
+            log.error("Authentication has been failed. Message = {}", ex.getMessage());
         }
     }
 

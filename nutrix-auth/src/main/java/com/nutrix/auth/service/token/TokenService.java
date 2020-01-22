@@ -5,16 +5,21 @@ import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.dto.token.TokenWrapper;
 import com.nutrix.auth.entity.Account;
 import com.nutrix.auth.entity.RefreshToken;
+import com.nutrix.common.exception.AccessDeniedException;
 import com.nutrix.common.exception.TokenExpiredException;
 import com.nutrix.common.security.AccountInfo;
 import com.nutrix.common.security.JwtParser;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class TokenService {
@@ -42,12 +47,23 @@ public class TokenService {
      */
     @Transactional
     public TokenHolder generate(String refreshToken) {
-        Long accountId = JwtParser.parse(refreshToken, tokenKey, true, Long.class);
-        RefreshToken rt = refreshTokenService.getByAccountId(accountId);
-        if (!rt.getToken().equals(refreshToken)) {
-            throw new TokenExpiredException();
+        validateToken(refreshToken);
+        RefreshToken rt = refreshTokenService.getByToken(refreshToken);
+        if (rt == null || rt.getAccount().isBlocked()) {
+            throw new AccessDeniedException();
         }
         return tokenService.generate(rt.getAccount());
+    }
+
+    private void validateToken(String token) {
+        try {
+            JwtParser.parse(token, tokenKey, Long.class);
+        } catch (ExpiredJwtException ex) {
+            log.error("Token has been expired.");
+            throw new TokenExpiredException();
+        } catch (JwtException ex) {
+            log.error("Couldn't parse token. Message = {}", ex.getMessage());
+        }
     }
 
 }

@@ -21,8 +21,8 @@ public class RefreshTokenService {
         return rt.getToken();
     }
 
-    public RefreshToken getByAccountId(Long accountId) {
-        return refreshTokenRepository.findByAccountId(accountId);
+    public RefreshToken getByToken(String token) {
+        return refreshTokenRepository.findByToken(token);
     }
 
 }

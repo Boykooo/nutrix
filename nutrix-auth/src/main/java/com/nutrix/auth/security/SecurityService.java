@@ -30,7 +30,7 @@ public class SecurityService {
             return;
         }
         try {
-            AccountInfo userInfo = JwtParser.parse(token, key, true, AccountInfo.class);
+            AccountInfo userInfo = JwtParser.parse(token, key, AccountInfo.class);
             List<SimpleGrantedAuthority> roles = userInfo.getRoles()
                     .stream()
                     .map(role -> new SimpleGrantedAuthority(ROLE_PREFIX + role))

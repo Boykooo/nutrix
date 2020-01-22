@@ -7,7 +7,8 @@ public enum ExceptionType {
     INTERNAL_SERVER_ERROR(1, "Internal Server Error."),
     ACCOUNT_OR_PASSWORD_INCORRECT(2, "Email or password incorrect."),
     ACCOUNT_ALREADY_EXISTS(3, "Account already exists."),
-    TOKEN_EXPIRED(4, "Token expired.")
+    TOKEN_EXPIRED(4, "Token expired."),
+    ACCESS_DENIED(5, "Access Denied.")
     ;
 
     private int code;

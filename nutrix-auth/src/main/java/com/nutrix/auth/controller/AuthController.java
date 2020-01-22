@@ -7,6 +7,7 @@ import com.nutrix.auth.dto.token.TokenHolder;
 import com.nutrix.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -22,6 +24,12 @@ import javax.validation.Valid;
 public class AuthController {
 
     private final AuthService authService;
+
+    @GetMapping("/token")
+    public ResponseEntity login(@RequestParam("rt") @NotEmpty String refreshToken) {
+        TokenHolder tokenHolder = authService.login(refreshToken);
+        return ResponseEntity.ok(tokenHolder);
+    }
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterData registerData) {
@@ -32,12 +40,6 @@ public class AuthController {
     @PostMapping("/email")
     public ResponseEntity login(@RequestBody @Valid Credentials credentials) {
         TokenHolder tokenHolder = authService.login(credentials);
-        return ResponseEntity.ok(tokenHolder);
-    }
-
-    @PutMapping("/token")
-    public ResponseEntity login(@RequestParam("rt") String refreshToken) {
-        TokenHolder tokenHolder = authService.login(refreshToken);
         return ResponseEntity.ok(tokenHolder);
     }
 
