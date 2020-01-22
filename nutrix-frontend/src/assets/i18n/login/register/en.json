@@ -1,2 +1,31 @@
 {
+  "register": {
+    "goal-step": {
+      "title": "What is your goal?",
+      "health": "Be Healthier",
+      "lose": "Lose Weight",
+      "gain": "Gain Weight"
+    },
+    "gender-step": {
+      "title": "What is your gender?",
+      "male": "Male",
+      "female": "Female"
+    },
+    "physical-step": {
+      "title": "Your physical data",
+      "birthday": "Birthday",
+      "height": "Your height",
+      "weight": "Your weight",
+      "targetWeight": "Target weight",
+      "next": "Next"
+    },
+    "account-step": {
+      "title": "Create account",
+      "alt": "or use your email for login",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "register": "Register"
+    }
+  }
 }

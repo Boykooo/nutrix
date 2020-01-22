@@ -1,7 +1,7 @@
 <div class="signup__step" fxLayout="column">
 
   <div class="auth-form__title">
-    Create account
+    {{"register.account-step.title" | translate}}
   </div>
 
   <app-social-network-login class="social-networks">
@@ -10,7 +10,7 @@
   <div class="auth-form__wrapper">
 
     <div class="auth-form__alternative">
-      or use your email for registration
+      {{"register.account-step.alt" | translate}}
     </div>
 
     <!-- Register Form -->
@@ -19,7 +19,7 @@
       <!-- Name -->
       <div class="form-input">
         <mat-icon onselectstart="return false">account_circle</mat-icon>
-        <input class="input-field" placeholder="Name" formControlName="name"/>
+        <input class="input-field" [placeholder]="'register.account-step.name' | translate" formControlName="name"/>
       </div>
       <div class="error-holder">
         <mat-error *ngIf="validation.isDirty('name') && validation.hasError('name', 'required')">Введите имя</mat-error>
@@ -29,7 +29,7 @@
       <!-- Email -->
       <div class="form-input">
         <mat-icon onselectstart="return false">email</mat-icon>
-        <input class="input-field" placeholder="Email" formControlName="email"/>
+        <input class="input-field" [placeholder]="'register.account-step.email' | translate" formControlName="email"/>
       </div>
       <div class="error-holder">
         <mat-error *ngIf="validation.isDirty('email') && validation.hasError('email', 'required')">Введите email</mat-error>
@@ -39,7 +39,7 @@
       <!-- Password -->
       <div class="form-input">
         <mat-icon onselectstart="return false">lock</mat-icon>
-        <input #passwordInput class="input-field" placeholder="Password" type="password" formControlName="password"/>
+        <input #passwordInput class="input-field" [placeholder]="'register.account-step.password' | translate" type="password" formControlName="password"/>
         <mat-icon class="visibility-button" (click)="togglePasswordVisible()" onselectstart="return false">
           {{passwordVisible ? 'visibility' : 'visibility_off'}}
         </mat-icon>
@@ -57,7 +57,7 @@
       </div>
 
       <button class="btn-accent btn-big" (click)="register()" type="submit">
-        Register
+        {{"register.account-step.register" | translate}}
       </button>
 
     </form>

@@ -3,24 +3,24 @@
   <div>
     <!--  Title  -->
     <div class="auth-form__title-small">
-      What is your goal?
+      {{"register.goal-step.title" | translate}}
     </div>
 
     <!--  Form  -->
     <div class="auth-form goal-form">
       <div>
         <button class="btn-accent btn-big btn-width-up" (click)="selectGoal(UserGoal.HEALTH)">
-          Be Healthier
+          {{"register.goal-step.health" | translate}}
         </button>
       </div>
       <div>
         <button class="btn-accent btn-big btn-width-up" (click)="selectGoal(UserGoal.LOSE_WEIGHT)">
-          Lose Weight
+          {{"register.goal-step.lose" | translate}}
         </button>
       </div>
       <div>
         <button class="btn-accent btn-big btn-width-up" (click)="selectGoal(UserGoal.GAIN_WEIGHT)">
-          Gain Weight
+          {{"register.goal-step.gain" | translate}}
         </button>
       </div>
     </div>
