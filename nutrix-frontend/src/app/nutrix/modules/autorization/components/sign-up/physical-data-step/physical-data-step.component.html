@@ -31,6 +31,12 @@
           <mat-error *ngIf="validation.isDirty('height') && validation.hasError('height', 'required')">
             Введите свой рост
           </mat-error>
+          <mat-error *ngIf="validation.isDirty('height') && validation.hasError('height', 'min')">
+            Введите корректный рост
+          </mat-error>
+          <mat-error *ngIf="validation.isDirty('height') && validation.hasError('height', 'max')">
+            Введите корректный рост
+          </mat-error>
         </div>
 
         <!-- Weight -->
@@ -42,6 +48,12 @@
           <mat-error *ngIf="validation.isDirty('weight') && validation.hasError('weight', 'required')">
             Введите свой текущий вес
           </mat-error>
+          <mat-error *ngIf="validation.isDirty('weight') && validation.hasError('weight', 'min')">
+            Введите корректный вес
+          </mat-error>
+          <mat-error *ngIf="validation.isDirty('weight') && validation.hasError('weight', 'max')">
+            Введите корректный вес
+          </mat-error>
         </div>
 
         <!-- Target Weight -->
@@ -52,6 +64,12 @@
         <div class="error-holder">
           <mat-error *ngIf="validation.isDirty('targetWeight') && validation.hasError('targetWeight', 'required')">
             Введите свой желаемый вес
+          </mat-error>
+          <mat-error *ngIf="validation.isDirty('targetWeight') && validation.hasError('targetWeight', 'min')">
+            Введите корректный вес
+          </mat-error>
+          <mat-error *ngIf="validation.isDirty('targetWeight') && validation.hasError('targetWeight', 'max')">
+            Введите корректный вес
           </mat-error>
         </div>
 
