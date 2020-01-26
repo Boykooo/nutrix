@@ -23,6 +23,7 @@ public class AccountService {
     public void create(NewAccountDto newAccount) {
         var account = accountRepository.save(AccountConverter.convert(newAccount));
         weightInfoService.create(account.getId(), newAccount);
+        log.info("Created account with ID = {}, Name = {}", account.getId(), account.getName());
     }
 
     public void getCurrentShort() {
